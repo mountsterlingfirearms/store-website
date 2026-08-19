@@ -227,11 +227,171 @@
     after the website itself is working.
   */
 
-  const inventoryContainer =
-    document.getElementById("inventoryContainer");
+const inventoryContainer =
+  document.getElementById("inventoryContainer");
 
-  inventoryContainer.innerHTML =
-    "<p>Your inventory will appear here.</p>";
+const searchInput =
+  document.getElementById("search");
+
+const typeFilter =
+  document.getElementById("typeFilter");
+
+const spreadsheetURL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRNSW6WUibosgNefGvqFH_6DcmbGGzu3Tm9DmEezPEuCrAlA2IfH0GuvzvR99bUEUsIVVyEt9sA6VB1/pub?gid=747662654&single=true&output=csv";
+
+let inventory = [];
+
+async function loadInventory() {
+
+  try {
+
+    const response = await fetch(spreadsheetURL);
+
+    const csv = await response.text();
+
+    const rows = csv.trim().split("\n");
+
+    const headers = rows[0].split(",");
+
+    inventory = rows.slice(1).map(row => {
+
+      const values = row.split(",");
+
+      const item = {};
+
+      headers.forEach((header, index) => {
+        item[header.trim()] =
+          values[index] ? values[index].trim() : "";
+      });
+
+      return item;
+
+    });
+
+    displayInventory();
+
+  } catch (error) {
+
+    inventoryContainer.innerHTML =
+      "<p>Unable to load inventory right now.</p>";
+
+    console.error(error);
+
+  }
+
+}
+
+function displayInventory() {
+
+  const search =
+    searchInput.value.toLowerCase();
+
+  const type =
+    typeFilter.value;
+
+  const filtered =
+    inventory.filter(item => {
+
+      const available =
+        item.Status &&
+        item.Status.toLowerCase() === "available";
+
+      const matchesSearch =
+        JSON.stringify(item)
+          .toLowerCase()
+          .includes(search);
+
+      const matchesType =
+        !type ||
+        item.Type === type;
+
+      return available &&
+        matchesSearch &&
+        matchesType;
+
+    });
+
+  inventoryContainer.innerHTML = "";
+
+  if (filtered.length === 0) {
+
+    inventoryContainer.innerHTML =
+      "<p>No matching inventory found.</p>";
+
+    return;
+
+  }
+
+  filtered.forEach(item => {
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "firearm-card";
+
+    const image =
+      item.Photo
+        ? `<img src="${item.Photo}" alt="${item.Make} ${item.Model}">`
+        : "";
+
+    card.innerHTML = `
+      ${image}
+
+      <div class="firearm-info">
+
+        <h3>
+          ${item.Make || ""}
+          ${item.Model || ""}
+        </h3>
+
+        <p>
+          <strong>Caliber:</strong>
+          ${item.Caliber || ""}
+        </p>
+
+        <p>
+          <strong>Condition:</strong>
+          ${item.Condition || ""}
+        </p>
+
+        <p>
+          <strong>Type:</strong>
+          ${item.Type || ""}
+        </p>
+
+        ${
+          item.Price
+            ? `<div class="price">${item.Price}</div>`
+            : ""
+        }
+
+        ${
+          item.Description
+            ? `<p>${item.Description}</p>`
+            : ""
+        }
+
+      </div>
+    `;
+
+    inventoryContainer.appendChild(card);
+
+  });
+
+}
+
+searchInput.addEventListener(
+  "input",
+  displayInventory
+);
+
+typeFilter.addEventListener(
+  "change",
+  displayInventory
+);
+
+loadInventory();
 
 </script>
 
