@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mount Sterling Firearms</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #222;
+    }
+
+    header {
+      background: #171717;
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: #ccc;
+    }
+
+    nav {
+      background: #242424;
+      text-align: center;
+      padding: 12px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #666;
+    }
+
+    .inventory-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .inventory-section h2 {
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 25px 0;
+      justify-content: center;
+    }
+
+    .filters input,
+    .filters select {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .inventory {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .firearm-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+    }
+
+    .firearm-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #ddd;
+    }
+
+    .firearm-info {
+      padding: 18px;
+    }
+
+    .firearm-info h3 {
+      margin-top: 0;
+      font-size: 21px;
+    }
+
+    .firearm-info p {
+      margin: 7px 0;
+      color: #555;
+    }
+
+    .price {
+      font-size: 21px;
+      font-weight: bold;
+      margin-top: 15px;
+      color: #111;
+    }
+
+    .contact {
+      background: #171717;
+      color: white;
+      text-align: center;
+      padding: 45px 20px;
+      margin-top: 60px;
+    }
+
+    footer {
+      background: #101010;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    .notice {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 15px;
+      background: #fff;
+      border-left: 4px solid #555;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Mount Sterling Firearms</h1>
+  <p>Firearms & Outdoor Equipment</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#inventory">Inventory</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero" id="home">
+  <h2>Current Inventory</h2>
+  <p>Browse our currently available inventory.</p>
+</section>
+
+<section class="inventory-section" id="inventory">
+
+  <h2>Our Inventory</h2>
+
+  <div class="notice">
+    Inventory changes frequently. Please contact or visit Mount Sterling Firearms
+    to confirm current availability and complete any transaction in accordance
+    with applicable laws.
+  </div>
+
+  <div class="filters">
+
+    <input
+      type="text"
+      id="search"
+      placeholder="Search inventory..."
+    >
+
+    <select id="typeFilter">
+      <option value="">All Types</option>
+      <option value="Pistol">Pistols</option>
+      <option value="Rifle">Rifles</option>
+      <option value="Shotgun">Shotguns</option>
+    </select>
+
+  </div>
+
+  <div class="inventory" id="inventoryContainer">
+    <p>Loading inventory...</p>
+  </div>
+
+</section>
+
+<section class="contact" id="contact">
+  <h2>Mount Sterling Firearms</h2>
+  <p>Visit us in Mount Sterling, Kentucky.</p>
+  <p>Contact the store for current inventory and store information.</p>
+</section>
+
+<footer>
+  © 2026 Mount Sterling Firearms. All rights reserved.
+</footer>
+
+<script>
+
+  /*
+    Your inventory connection will be added here
+    after the website itself is working.
+  */
+
+  const inventoryContainer =
+    document.getElementById("inventoryContainer");
+
+  inventoryContainer.innerHTML =
+    "<p>Your inventory will appear here.</p>";
+
+</script>
+
+</body>
+</html>
