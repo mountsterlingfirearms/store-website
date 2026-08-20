@@ -6,394 +6,1313 @@
 
   <title>Mount Sterling Firearms</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
   <style>
+
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      color: #222;
+      font-family: "Roboto", Arial, sans-serif;
+      background: #f3f3f1;
+      color: #202020;
     }
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
-      background: #171717;
+      background: #111;
       color: white;
-      padding: 25px 20px;
       text-align: center;
+      padding: 45px 20px 35px;
     }
 
-    header h1 {
+    .store-name {
       margin: 0;
-      font-size: 32px;
+      font-family: "Oswald", sans-serif;
+      font-size: clamp(42px, 7vw, 76px);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      line-height: 1;
     }
 
-    header p {
-      margin: 8px 0 0;
-      color: #ccc;
+    .location-line {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #d5d5d5;
+      letter-spacing: 1px;
     }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     nav {
       background: #242424;
-      text-align: center;
-      padding: 12px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      border-bottom: 3px solid #111;
     }
 
-    nav a {
+    nav button {
+      border: none;
+      background: transparent;
       color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
+      padding: 17px 25px;
+      font-family: "Oswald", sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background: #444;
+    }
+
+    /* =========================
+       PAGE CONTENT
+    ========================= */
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
     }
 
     .hero {
       background: white;
       text-align: center;
-      padding: 50px 20px;
+      padding: 60px 20px 45px;
     }
 
     .hero h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
+      margin: 0 0 15px;
+      font-family: "Oswald", sans-serif;
+      font-size: clamp(32px, 5vw, 52px);
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .hero p {
-      font-size: 18px;
+      max-width: 800px;
+      margin: auto;
       color: #666;
+      font-size: 17px;
+      line-height: 1.6;
     }
+
+    .inventory-notice {
+      max-width: 900px;
+      margin: 25px auto 0;
+      padding: 16px 20px;
+      background: #eeeeec;
+      border-left: 4px solid #222;
+      color: #555;
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    /* =========================
+       INVENTORY
+    ========================= */
 
     .inventory-section {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 45px 20px 70px;
     }
 
-    .inventory-section h2 {
+    .section-title {
       text-align: center;
-      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-family: "Oswald", sans-serif;
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .filters {
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin: 25px 0;
       justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 35px;
     }
 
-    .filters input,
-    .filters select {
-      padding: 12px;
+    .filters input {
+      width: min(450px, 100%);
+      padding: 14px 16px;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      border-radius: 5px;
       font-size: 16px;
+      background: white;
     }
 
-    .inventory {
+    .inventory-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 28px;
     }
+
+    /* =========================
+       FIREARM CARD
+    ========================= */
 
     .firearm-card {
       background: white;
-      border-radius: 10px;
+      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+      box-shadow: 0 3px 15px rgba(0,0,0,0.10);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .firearm-card img {
+    .firearm-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 22px rgba(0,0,0,0.15);
+    }
+
+    .firearm-image {
       width: 100%;
-      height: 220px;
-      object-fit: cover;
-      background: #ddd;
+      height: 250px;
+      object-fit: contain;
+      background: #e9e9e7;
+      display: block;
+    }
+
+    .no-photo {
+      width: 100%;
+      height: 250px;
+      background: #dededc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      font-size: 15px;
     }
 
     .firearm-info {
-      padding: 18px;
+      padding: 21px;
+    }
+
+    .firearm-type {
+      display: inline-block;
+      background: #222;
+      color: white;
+      padding: 5px 9px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
     }
 
     .firearm-info h3 {
-      margin-top: 0;
-      font-size: 21px;
+      margin: 0 0 12px;
+      font-family: "Oswald", sans-serif;
+      font-size: 25px;
+      line-height: 1.15;
     }
 
-    .firearm-info p {
-      margin: 7px 0;
+    .firearm-details {
       color: #555;
+      font-size: 15px;
+      line-height: 1.7;
     }
 
     .price {
-      font-size: 21px;
-      font-weight: bold;
-      margin-top: 15px;
+      margin-top: 14px;
+      font-size: 23px;
+      font-weight: 700;
       color: #111;
     }
 
-    .contact {
-      background: #171717;
-      color: white;
-      text-align: center;
-      padding: 45px 20px;
-      margin-top: 60px;
-    }
-
-    footer {
-      background: #101010;
-      color: #aaa;
-      text-align: center;
-      padding: 20px;
+    .description {
+      margin-top: 14px;
+      color: #666;
+      line-height: 1.5;
       font-size: 14px;
     }
 
-    .notice {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 15px;
-      background: #fff;
-      border-left: 4px solid #555;
-      color: #555;
+    /* =========================
+       HOME
+    ========================= */
+
+    .latest-section {
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 45px 20px 70px;
     }
+
+    .latest-label {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .latest-label h2 {
+      margin: 0 0 8px;
+      font-family: "Oswald", sans-serif;
+      font-size: 36px;
+      text-transform: uppercase;
+    }
+
+    .latest-label p {
+      margin: 0;
+      color: #777;
+    }
+
+    /* =========================
+       EMPTY / LOADING
+    ========================= */
+
+    .message {
+      text-align: center;
+      padding: 50px 20px;
+      color: #777;
+      font-size: 17px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 45px 20px;
+    }
+
+    footer h2 {
+      margin: 0 0 18px;
+      font-family: "Oswald", sans-serif;
+      font-size: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    footer p {
+      margin: 8px 0;
+      color: #ccc;
+      font-size: 16px;
+    }
+
+    footer .phone {
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 15px;
+    }
+
+    footer .copyright {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 35px 15px 28px;
+      }
+
+      .store-name {
+        font-size: 42px;
+      }
+
+      .location-line {
+        font-size: 15px;
+      }
+
+      nav button {
+        padding: 14px 11px;
+        font-size: 14px;
+      }
+
+      .hero {
+        padding: 45px 18px 35px;
+      }
+
+      .inventory-section,
+      .latest-section {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .inventory-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Mount Sterling Firearms</h1>
-  <p>Firearms & Outdoor Equipment</p>
-</header>
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#inventory">Inventory</a>
-  <a href="#contact">Contact</a>
-</nav>
+  <header>
 
-<section class="hero" id="home">
-  <h2>Current Inventory</h2>
-  <p>Browse our currently available inventory.</p>
-</section>
+    <h1 class="store-name">
+      Mount Sterling Firearms
+    </h1>
 
-<section class="inventory-section" id="inventory">
+    <div class="location-line">
+      Located inside Johnny's Power Sports
+    </div>
 
-  <h2>Our Inventory</h2>
+  </header>
 
-  <div class="notice">
-    Inventory changes frequently. Please contact or visit Mount Sterling Firearms
-    to confirm current availability and complete any transaction in accordance
-    with applicable laws.
-  </div>
 
-  <div class="filters">
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
 
-    <input
-      type="text"
-      id="search"
-      placeholder="Search inventory..."
-    >
+  <nav>
 
-    <select id="typeFilter">
-      <option value="">All Types</option>
-      <option value="Pistol">Pistols</option>
-      <option value="Rifle">Rifles</option>
-      <option value="Shotgun">Shotguns</option>
-    </select>
+    <button
+      class="nav-button active"
+      data-page="home">
+      Home
+    </button>
 
-  </div>
+    <button
+      class="nav-button"
+      data-page="pistols">
+      Pistols
+    </button>
 
-  <div class="inventory" id="inventoryContainer">
-    <p>Loading inventory...</p>
-  </div>
+    <button
+      class="nav-button"
+      data-page="rifles">
+      Rifles
+    </button>
 
-</section>
+    <button
+      class="nav-button"
+      data-page="shotguns">
+      Shotguns
+    </button>
 
-<section class="contact" id="contact">
-  <h2>Mount Sterling Firearms</h2>
-  <p>Visit us in Mount Sterling, Kentucky.</p>
-  <p>Contact the store for current inventory and store information.</p>
-</section>
+    <button
+      class="nav-button"
+      data-page="muzzle-loaders">
+      Muzzle Loaders
+    </button>
 
-<footer>
-  © 2026 Mount Sterling Firearms. All rights reserved.
-</footer>
+  </nav>
 
-<script>
 
-  /*
-    Your inventory connection will be added here
-    after the website itself is working.
-  */
+  <!-- =========================
+       HOME PAGE
+  ========================= -->
 
-const inventoryContainer =
-  document.getElementById("inventoryContainer");
+  <main>
 
-const searchInput =
-  document.getElementById("search");
+    <section
+      id="home"
+      class="page active">
 
-const typeFilter =
-  document.getElementById("typeFilter");
+      <div class="hero">
 
-const spreadsheetURL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRNSW6WUibosgNefGvqFH_6DcmbGGzu3Tm9DmEezPEuCrAlA2IfH0GuvzvR99bUEUsIVVyEt9sA6VB1/pub?gid=747662654&single=true&output=csv";
-
-let inventory = [];
-
-async function loadInventory() {
-
-  try {
-
-    const response = await fetch(spreadsheetURL);
-
-    const csv = await response.text();
-
-    const rows = csv.trim().split("\n");
-
-    const headers = rows[0].split(",");
-
-    inventory = rows.slice(1).map(row => {
-
-      const values = row.split(",");
-
-      const item = {};
-
-      headers.forEach((header, index) => {
-        item[header.trim()] =
-          values[index] ? values[index].trim() : "";
-      });
-
-      return item;
-
-    });
-
-    displayInventory();
-
-  } catch (error) {
-
-    inventoryContainer.innerHTML =
-      "<p>Unable to load inventory right now.</p>";
-
-    console.error(error);
-
-  }
-
-}
-
-function displayInventory() {
-
-  const search =
-    searchInput.value.toLowerCase();
-
-  const type =
-    typeFilter.value;
-
-  const filtered =
-    inventory.filter(item => {
-
-      const available =
-        item.Status &&
-        item.Status.toLowerCase() === "available";
-
-      const matchesSearch =
-        JSON.stringify(item)
-          .toLowerCase()
-          .includes(search);
-
-      const matchesType =
-        !type ||
-        item.Type === type;
-
-      return available &&
-        matchesSearch &&
-        matchesType;
-
-    });
-
-  inventoryContainer.innerHTML = "";
-
-  if (filtered.length === 0) {
-
-    inventoryContainer.innerHTML =
-      "<p>No matching inventory found.</p>";
-
-    return;
-
-  }
-
-  filtered.forEach(item => {
-
-    const card =
-      document.createElement("div");
-
-    card.className =
-      "firearm-card";
-
-    const image =
-      item.Photo
-        ? `<img src="${item.Photo}" alt="${item.Make} ${item.Model}">`
-        : "";
-
-    card.innerHTML = `
-      ${image}
-
-      <div class="firearm-info">
-
-        <h3>
-          ${item.Make || ""}
-          ${item.Model || ""}
-        </h3>
+        <h2>
+          Welcome to Mount Sterling Firearms
+        </h2>
 
         <p>
-          <strong>Caliber:</strong>
-          ${item.Caliber || ""}
+          Browse our current firearm inventory below.
         </p>
 
-        <p>
-          <strong>Condition:</strong>
-          ${item.Condition || ""}
-        </p>
+        <div class="inventory-notice">
 
-        <p>
-          <strong>Type:</strong>
-          ${item.Type || ""}
-        </p>
+          Inventory changes frequently. Please contact or visit
+          Mount Sterling Firearms to confirm current availability
+          and complete any transaction in accordance with applicable laws.
 
-        ${
-          item.Price
-            ? `<div class="price">${item.Price}</div>`
-            : ""
-        }
-
-        ${
-          item.Description
-            ? `<p>${item.Description}</p>`
-            : ""
-        }
+        </div>
 
       </div>
-    `;
 
-    inventoryContainer.appendChild(card);
 
-  });
+      <div class="latest-section">
 
-}
+        <div class="latest-label">
 
-searchInput.addEventListener(
-  "input",
-  displayInventory
-);
+          <h2>
+            Latest Inventory
+          </h2>
 
-typeFilter.addEventListener(
-  "change",
-  displayInventory
-);
+          <p>
+            Check out the newest additions to our inventory.
+          </p>
 
-loadInventory();
+        </div>
 
-</script>
+        <div
+          id="latestInventory"
+          class="inventory-grid">
+
+          <div class="message">
+            Loading inventory...
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PISTOLS
+    ========================= -->
+
+    <section
+      id="pistols"
+      class="page">
+
+      <div class="inventory-section">
+
+        <div class="section-title">
+
+          <h2>
+            Pistols
+          </h2>
+
+        </div>
+
+        <div class="filters">
+
+          <input
+            type="text"
+            id="pistolSearch"
+            placeholder="Search pistols...">
+
+        </div>
+
+        <div
+          id="pistolInventory"
+          class="inventory-grid">
+
+          <div class="message">
+            Loading inventory...
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         RIFLES
+    ========================= -->
+
+    <section
+      id="rifles"
+      class="page">
+
+      <div class="inventory-section">
+
+        <div class="section-title">
+
+          <h2>
+            Rifles
+          </h2>
+
+        </div>
+
+        <div class="filters">
+
+          <input
+            type="text"
+            id="rifleSearch"
+            placeholder="Search rifles...">
+
+        </div>
+
+        <div
+          id="rifleInventory"
+          class="inventory-grid">
+
+          <div class="message">
+            Loading inventory...
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SHOTGUNS
+    ========================= -->
+
+    <section
+      id="shotguns"
+      class="page">
+
+      <div class="inventory-section">
+
+        <div class="section-title">
+
+          <h2>
+            Shotguns
+          </h2>
+
+        </div>
+
+        <div class="filters">
+
+          <input
+            type="text"
+            id="shotgunSearch"
+            placeholder="Search shotguns...">
+
+        </div>
+
+        <div
+          id="shotgunInventory"
+          class="inventory-grid">
+
+          <div class="message">
+            Loading inventory...
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MUZZLE LOADERS
+    ========================= -->
+
+    <section
+      id="muzzle-loaders"
+      class="page">
+
+      <div class="inventory-section">
+
+        <div class="section-title">
+
+          <h2>
+            Muzzle Loaders
+          </h2>
+
+        </div>
+
+        <div class="filters">
+
+          <input
+            type="text"
+            id="muzzleSearch"
+            placeholder="Search muzzle loaders...">
+
+        </div>
+
+        <div
+          id="muzzleInventory"
+          class="inventory-grid">
+
+          <div class="message">
+            Loading inventory...
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <h2>
+      Mount Sterling Firearms
+    </h2>
+
+    <p>
+      700 Vance Drive
+    </p>
+
+    <p>
+      Mt. Sterling, KY 40353
+    </p>
+
+    <p class="phone">
+      859-497-0330
+    </p>
+
+    <p class="copyright">
+      © 2026 Mount Sterling Firearms
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /*
+      GOOGLE SHEETS INVENTORY FEED
+    */
+
+    const spreadsheetURL =
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vRNSW6WUibosgNefGvqFH_6DcmbGGzu3Tm9DmEezPEuCrAlA2IfH0GuvzvR99bUEUsIVVyEt9sA6VB1/pub?gid=747662654&single=true&output=csv";
+
+
+    let inventory = [];
+
+
+    /*
+      PARSE CSV
+      This handles commas inside descriptions better
+      than the simple split() method we used before.
+    */
+
+    function parseCSV(text) {
+
+      const rows = [];
+
+      let row = [];
+
+      let value = "";
+
+      let insideQuotes = false;
+
+
+      for (let i = 0; i < text.length; i++) {
+
+        const character = text[i];
+
+        const nextCharacter = text[i + 1];
+
+
+        if (character === '"' && insideQuotes && nextCharacter === '"') {
+
+          value += '"';
+
+          i++;
+
+        }
+
+        else if (character === '"') {
+
+          insideQuotes = !insideQuotes;
+
+        }
+
+        else if (character === "," && !insideQuotes) {
+
+          row.push(value.trim());
+
+          value = "";
+
+        }
+
+        else if (
+          (character === "\n" || character === "\r")
+          && !insideQuotes
+        ) {
+
+          if (character === "\r" && nextCharacter === "\n") {
+            i++;
+          }
+
+          row.push(value.trim());
+
+          rows.push(row);
+
+          row = [];
+
+          value = "";
+
+        }
+
+        else {
+
+          value += character;
+
+        }
+
+      }
+
+
+      if (value.length > 0 || row.length > 0) {
+
+        row.push(value.trim());
+
+        rows.push(row);
+
+      }
+
+
+      return rows;
+
+    }
+
+
+    /*
+      TURN GOOGLE DRIVE LINK
+      INTO A DISPLAYABLE IMAGE LINK
+    */
+
+    function getPhotoURL(photo) {
+
+      if (!photo) {
+        return "";
+      }
+
+
+      const match =
+        photo.match(/\/file\/d\/([^/]+)/);
+
+
+      if (match) {
+
+        return (
+          "https://drive.google.com/thumbnail?id="
+          + match[1]
+          + "&sz=w1000"
+        );
+
+      }
+
+
+      return photo;
+
+    }
+
+
+    /*
+      CREATE A FIREARM CARD
+    */
+
+    function createCard(item) {
+
+      const card =
+        document.createElement("div");
+
+      card.className =
+        "firearm-card";
+
+
+      const photoURL =
+        getPhotoURL(item.Photo);
+
+
+      let photoHTML = "";
+
+
+      if (photoURL) {
+
+        photoHTML = `
+          <img
+            class="firearm-image"
+            src="${photoURL}"
+            alt="${item.Make || ""} ${item.Model || ""}"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+
+          <div
+            class="no-photo"
+            style="display:none;">
+            Photo unavailable
+          </div>
+        `;
+
+      }
+
+      else {
+
+        photoHTML = `
+          <div class="no-photo">
+            Photo coming soon
+          </div>
+        `;
+
+      }
+
+
+      card.innerHTML = `
+
+        ${photoHTML}
+
+        <div class="firearm-info">
+
+          <span class="firearm-type">
+            ${item.Type || ""}
+          </span>
+
+          <h3>
+            ${item.Make || ""}
+            ${item.Model || ""}
+          </h3>
+
+          <div class="firearm-details">
+
+            ${
+              item.Caliber
+                ? `<div><strong>Caliber:</strong> ${item.Caliber}</div>`
+                : ""
+            }
+
+            ${
+              item.Condition
+                ? `<div><strong>Condition:</strong> ${item.Condition}</div>`
+                : ""
+            }
+
+          </div>
+
+          ${
+            item.Price
+              ? `<div class="price">${item.Price}</div>`
+              : ""
+          }
+
+          ${
+            item.Description
+              ? `<div class="description">${item.Description}</div>`
+              : ""
+          }
+
+        </div>
+
+      `;
+
+
+      return card;
+
+    }
+
+
+    /*
+      DISPLAY INVENTORY IN A CONTAINER
+    */
+
+    function displayInventory(
+      containerID,
+      type,
+      searchText = ""
+    ) {
+
+      const container =
+        document.getElementById(containerID);
+
+
+      if (!container) {
+        return;
+      }
+
+
+      container.innerHTML = "";
+
+
+      const search =
+        searchText.toLowerCase().trim();
+
+
+      const matchingItems =
+        inventory.filter(item => {
+
+          const available =
+            String(item.Status || "")
+              .toLowerCase()
+              .trim() === "available";
+
+
+          const correctType =
+            String(item.Type || "")
+              .toLowerCase()
+              .trim() === type.toLowerCase();
+
+
+          const searchableText =
+            JSON.stringify(item)
+              .toLowerCase();
+
+
+          const matchesSearch =
+            !search ||
+            searchableText.includes(search);
+
+
+          return (
+            available &&
+            correctType &&
+            matchesSearch
+          );
+
+        });
+
+
+      if (matchingItems.length === 0) {
+
+        container.innerHTML = `
+          <div class="message">
+            No inventory currently available.
+          </div>
+        `;
+
+        return;
+
+      }
+
+
+      matchingItems.forEach(item => {
+
+        container.appendChild(
+          createCard(item)
+        );
+
+      });
+
+    }
+
+
+    /*
+      LOAD THE THREE LATEST AVAILABLE ITEMS
+
+      Newest = last available rows in spreadsheet.
+    */
+
+    function displayLatest() {
+
+      const container =
+        document.getElementById("latestInventory");
+
+
+      container.innerHTML = "";
+
+
+      const available =
+        inventory.filter(item => {
+
+          return String(item.Status || "")
+            .toLowerCase()
+            .trim() === "available";
+
+        });
+
+
+      const latest =
+        available.slice(-3).reverse();
+
+
+      if (latest.length === 0) {
+
+        container.innerHTML = `
+          <div class="message">
+            No inventory currently available.
+          </div>
+        `;
+
+        return;
+
+      }
+
+
+      latest.forEach(item => {
+
+        container.appendChild(
+          createCard(item)
+        );
+
+      });
+
+    }
+
+
+    /*
+      NAVIGATION
+    */
+
+    const navButtons =
+      document.querySelectorAll(".nav-button");
+
+
+    const pages =
+      document.querySelectorAll(".page");
+
+
+    navButtons.forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const pageID =
+            button.dataset.page;
+
+
+          navButtons.forEach(btn => {
+            btn.classList.remove("active");
+          });
+
+
+          button.classList.add("active");
+
+
+          pages.forEach(page => {
+
+            page.classList.remove("active");
+
+          });
+
+
+          document
+            .getElementById(pageID)
+            .classList.add("active");
+
+
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+
+        }
+      );
+
+    });
+
+
+    /*
+      SEARCH BOXES
+    */
+
+    document
+      .getElementById("pistolSearch")
+      .addEventListener(
+        "input",
+        event => {
+
+          displayInventory(
+            "pistolInventory",
+            "Pistol",
+            event.target.value
+          );
+
+        }
+      );
+
+
+    document
+      .getElementById("rifleSearch")
+      .addEventListener(
+        "input",
+        event => {
+
+          displayInventory(
+            "rifleInventory",
+            "Rifle",
+            event.target.value
+          );
+
+        }
+      );
+
+
+    document
+      .getElementById("shotgunSearch")
+      .addEventListener(
+        "input",
+        event => {
+
+          displayInventory(
+            "shotgunInventory",
+            "Shotgun",
+            event.target.value
+          );
+
+        }
+      );
+
+
+    document
+      .getElementById("muzzleSearch")
+      .addEventListener(
+        "input",
+        event => {
+
+          displayInventory(
+            "muzzleInventory",
+            "Muzzle Loader",
+            event.target.value
+          );
+
+        }
+      );
+
+
+    /*
+      LOAD INVENTORY FROM GOOGLE SHEETS
+    */
+
+    async function loadInventory() {
+
+      try {
+
+        const response =
+          await fetch(spreadsheetURL);
+
+
+        if (!response.ok) {
+          throw new Error(
+            "Unable to load inventory."
+          );
+        }
+
+
+        const csv =
+          await response.text();
+
+
+        const rows =
+          parseCSV(csv);
+
+
+        if (rows.length < 2) {
+          throw new Error(
+            "No inventory found."
+          );
+        }
+
+
+        const headers =
+          rows[0].map(
+            header => header.trim()
+          );
+
+
+        inventory =
+          rows.slice(1)
+            .filter(row => row.length > 1)
+            .map(row => {
+
+              const item = {};
+
+
+              headers.forEach(
+                (header, index) => {
+
+                  item[header] =
+                    row[index] || "";
+
+                }
+              );
+
+
+              return item;
+
+            });
+
+
+        /*
+          DISPLAY EVERYTHING
+        */
+
+        displayLatest();
+
+
+        displayInventory(
+          "pistolInventory",
+          "Pistol"
+        );
+
+
+        displayInventory(
+          "rifleInventory",
+          "Rifle"
+        );
+
+
+        displayInventory(
+          "shotgunInventory",
+          "Shotgun"
+        );
+
+
+        displayInventory(
+          "muzzleInventory",
+          "Muzzle Loader"
+        );
+
+
+      }
+
+      catch (error) {
+
+        console.error(error);
+
+
+        document.getElementById(
+          "latestInventory"
+        ).innerHTML = `
+          <div class="message">
+            Inventory is temporarily unavailable.
+          </div>
+        `;
+
+      }
+
+    }
+
+
+    /*
+      START
+    */
+
+    loadInventory();
+
+  </script>
 
 </body>
 </html>
