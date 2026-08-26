@@ -1,2511 +1,2979 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
 
-  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta name="description"
+content="Browse current inventory at Mount Sterling Firearms, located inside Johnny's Power Sports in Mt. Sterling, Kentucky.">
 
-  <meta
-    name="description"
-    content="Mount Sterling Firearms, located inside Johnny's Power Sports in Mt. Sterling, Kentucky. Browse current firearm inventory."
-  >
+<title>Mount Sterling Firearms</title>
 
-  <title>Mount Sterling Firearms</title>
+<style>
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
+/* =====================================================
+   COLORS + BASIC SETTINGS
+===================================================== */
 
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
+:root {
+    --black: #0c0c0d;
+    --dark: #171719;
+    --gray: #5e5e62;
+    --light-gray: #f2f2f3;
+    --border: #dedee1;
+    --white: #ffffff;
+    --red: #a7191f;
+    --red-dark: #801318;
+}
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  >
+* {
+    box-sizing: border-box;
+}
 
+html {
+    scroll-behavior: smooth;
+}
 
-  <style>
+body {
+    margin: 0;
+    background: #f5f5f6;
+    color: #19191b;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-    /* =========================================
-       BASIC SETTINGS
-    ========================================= */
-
-    :root {
-
-      --black: #0b0b0b;
-      --dark: #151515;
-      --dark-gray: #242424;
-      --gray: #666;
-      --light-gray: #eeeeee;
-      --white: #ffffff;
-      --red: #b51217;
-      --red-dark: #8d0d11;
-
-    }
+button,
+input {
+    font: inherit;
+}
 
 
-    * {
-      box-sizing: border-box;
-    }
+/* =====================================================
+   HEADER
+===================================================== */
 
+.site-header {
+    min-height: 475px;
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-
-    body {
-
-      margin: 0;
-
-      background: #f3f3f3;
-
-      color: #161616;
-
-      font-family:
-        "Inter",
-        Arial,
-        sans-serif;
-
-    }
-
-
-    button,
-    input {
-
-      font-family:
-        "Inter",
-        Arial,
-        sans-serif;
-
-    }
-
-
-    /* =========================================
-       HEADER
-    ========================================= */
-
-    header {
-
-      position: relative;
-
-      min-height: 430px;
-
-      background-color: var(--black);
-
-      background-image:
+    background-image:
         linear-gradient(
-          90deg,
-          rgba(0,0,0,0.82),
-          rgba(0,0,0,0.30)
+            90deg,
+            rgba(5,5,6,.89) 0%,
+            rgba(5,5,6,.74) 45%,
+            rgba(5,5,6,.48) 100%
         ),
         url("header-background.png");
 
-      background-size: cover;
+    background-size: cover;
+    background-position: center;
 
-      background-position: center;
+    color: white;
 
-      color: white;
+    display: flex;
+    align-items: center;
+}
 
-      display: flex;
+.header-inner {
+    width: 100%;
+    max-width: 1300px;
 
-      align-items: center;
+    margin: auto;
 
-    }
+    padding: 55px 35px;
 
+    display: flex;
+    align-items: center;
 
-    .header-content {
+    gap: 38px;
+}
 
-      width: 100%;
+.header-logo {
+    width: 205px;
+    height: 205px;
 
-      max-width: 1300px;
+    object-fit: contain;
 
-      margin: 0 auto;
+    flex-shrink: 0;
 
-      padding: 45px 30px;
+    filter: drop-shadow(
+        0 6px 14px rgba(0,0,0,.65)
+    );
+}
 
-      display: flex;
+.header-copy {
+    max-width: 700px;
+}
 
-      align-items: center;
+.header-copy h1 {
+    margin: 0;
 
-      gap: 35px;
-
-    }
-
-
-    .header-logo {
-
-      width: 190px;
-
-      height: 190px;
-
-      object-fit: contain;
-
-      flex-shrink: 0;
-
-      filter:
-        drop-shadow(
-          0 5px 15px rgba(0,0,0,0.6)
-        );
-
-    }
-
-
-    .header-text {
-
-      max-width: 650px;
-
-    }
-
-
-    .store-title {
-
-      margin: 0;
-
-      font-family:
-        "Oswald",
+    font-family:
+        "Arial Narrow",
+        Arial,
         sans-serif;
 
-      font-size:
-        clamp(48px, 7vw, 86px);
+    font-size: clamp(48px, 6vw, 82px);
 
-      line-height: 0.95;
+    line-height: .98;
 
-      text-transform: uppercase;
+    font-weight: 800;
 
-      letter-spacing: 2px;
+    text-transform: uppercase;
 
-      font-weight: 700;
+    letter-spacing: 1px;
 
-      text-shadow:
-        2px 3px 8px rgba(0,0,0,0.7);
+    text-shadow:
+        0 4px 10px rgba(0,0,0,.65);
+}
 
-    }
+.header-copy p {
+    margin: 18px 0 0;
 
+    font-size: 20px;
 
-    .store-subtitle {
+    color: #ededed;
 
-      margin-top: 18px;
+    letter-spacing: .3px;
+}
 
-      font-size: 20px;
+.header-accent {
+    width: 90px;
+    height: 4px;
 
-      color: #e8e8e8;
+    margin-top: 23px;
 
-      letter-spacing: 0.5px;
+    background: var(--red);
+}
 
-    }
 
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
-    .red-line {
+.main-nav {
+    position: sticky;
+    top: 0;
 
-      width: 90px;
+    z-index: 500;
 
-      height: 4px;
+    background: var(--black);
 
-      background: var(--red);
+    border-bottom: 3px solid var(--red);
 
-      margin-top: 22px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 
-    }
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.22);
+}
 
+.nav-button {
+    border: 0;
 
-    /* =========================================
-       NAVIGATION
-    ========================================= */
+    background: transparent;
 
-    nav {
+    color: white;
 
-      background: var(--black);
+    padding: 18px 28px;
 
-      border-top:
-        1px solid #333;
+    cursor: pointer;
 
-      border-bottom:
-        3px solid var(--red);
+    font-size: 15px;
+    font-weight: 700;
 
-      display: flex;
+    text-transform: uppercase;
 
-      justify-content: center;
+    letter-spacing: .7px;
 
-      flex-wrap: wrap;
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
 
-    }
+.nav-button:hover {
+    background: #28282b;
+}
 
+.nav-button.active {
+    background: var(--red);
+}
 
-    .nav-button {
 
-      background: transparent;
+/* =====================================================
+   PAGE SWITCHING
+===================================================== */
 
-      color: white;
+.page {
+    display: none;
+}
 
-      border: 0;
+.page.active {
+    display: block;
 
-      padding: 17px 28px;
-
-      cursor: pointer;
-
-      font-family:
-        "Oswald",
-        sans-serif;
-
-      font-size: 17px;
-
-      font-weight: 600;
-
-      text-transform: uppercase;
-
-      letter-spacing: 0.8px;
-
-      transition:
-        background 0.2s ease,
-        color 0.2s ease;
-
-    }
-
-
-    .nav-button:hover {
-
-      background: #292929;
-
-    }
-
-
-    .nav-button.active {
-
-      background: var(--red);
-
-    }
-
-
-    /* =========================================
-       PAGES
-    ========================================= */
-
-    .page {
-
-      display: none;
-
-    }
-
-
-    .page.active {
-
-      display: block;
-
-      animation:
-        fadeIn 0.25s ease;
-
-    }
-
-
-    @keyframes fadeIn {
-
-      from {
+    animation:
+        pageFade .22s ease;
+}
+
+@keyframes pageFade {
+    from {
         opacity: 0;
-        transform: translateY(5px);
-      }
+    }
 
-      to {
+    to {
         opacity: 1;
-        transform: translateY(0);
-      }
-
     }
+}
 
 
-    /* =========================================
-       HOME INTRO
-    ========================================= */
+/* =====================================================
+   PAGE INTRO
+===================================================== */
 
-    .home-intro {
+.page-intro {
+    background: white;
 
-      background: white;
+    padding: 55px 20px 45px;
 
-      text-align: center;
+    text-align: center;
 
-      padding:
-        60px 20px 45px;
+    border-bottom:
+        1px solid #e7e7e7;
+}
 
-    }
+.page-intro h2 {
+    margin: 0;
 
-
-    .home-intro h2 {
-
-      margin: 0;
-
-      font-family:
-        "Oswald",
-        sans-serif;
-
-      font-size:
+    font-size:
         clamp(34px, 5vw, 52px);
 
-      text-transform: uppercase;
+    text-transform: uppercase;
 
-      letter-spacing: 1px;
+    letter-spacing: .5px;
+}
 
-    }
+.page-intro .intro-line {
+    width: 65px;
+    height: 3px;
 
+    margin: 18px auto;
 
-    .home-intro p {
+    background: var(--red);
+}
 
-      max-width: 800px;
+.page-intro p {
+    max-width: 800px;
 
-      margin:
-        16px auto 0;
+    margin: 0 auto;
 
-      color: #666;
+    color: #606064;
 
-      font-size: 17px;
+    font-size: 17px;
 
-      line-height: 1.6;
-
-    }
-
-
-    .inventory-notice {
-
-      max-width: 850px;
-
-      margin:
-        25px auto 0;
-
-      padding:
-        16px 20px;
-
-      border-left:
-        4px solid var(--red);
-
-      background:
-        #f2f2f2;
-
-      color: #555;
-
-      text-align: left;
-
-      font-size: 14px;
-
-      line-height: 1.6;
-
-    }
+    line-height: 1.6;
+}
 
 
-    /* =========================================
-       CONTENT
-    ========================================= */
+/* =====================================================
+   CONTENT
+===================================================== */
 
-    .content {
+.content {
+    width: 100%;
+    max-width: 1250px;
 
-      max-width: 1250px;
+    margin: auto;
 
-      margin: 0 auto;
+    padding: 50px 25px 75px;
+}
 
-      padding:
-        50px 20px 80px;
+.section-heading {
+    margin-bottom: 30px;
 
-    }
+    text-align: center;
+}
 
+.section-heading h3 {
+    margin: 0;
 
-    .section-heading {
+    font-size: 34px;
 
-      text-align: center;
+    text-transform: uppercase;
+}
 
-      margin-bottom: 30px;
+.section-heading p {
+    margin: 9px 0 0;
 
-    }
-
-
-    .section-heading h2 {
-
-      margin: 0;
-
-      font-family:
-        "Oswald",
-        sans-serif;
-
-      font-size: 38px;
-
-      text-transform: uppercase;
-
-    }
+    color: var(--gray);
+}
 
 
-    .section-heading p {
+/* =====================================================
+   SEARCH
+===================================================== */
 
-      margin-top: 8px;
+.search-area {
+    max-width: 700px;
 
-      color: #777;
-
-    }
-
-
-    /* =========================================
-       SEARCH
-    ========================================= */
-
-    .search-area {
-
-      max-width: 700px;
-
-      margin:
+    margin:
         0 auto 40px;
+}
 
-    }
+.search-box {
+    width: 100%;
 
+    padding: 15px 18px;
 
-    .search-box {
+    border:
+        1px solid #cfcfd2;
 
-      width: 100%;
+    border-radius: 5px;
 
-      padding:
-        15px 18px;
+    background: white;
 
-      border:
-        1px solid #ccc;
+    color: #222;
 
-      border-radius: 5px;
+    font-size: 16px;
 
-      background: white;
+    outline: none;
 
-      font-size: 16px;
+    transition:
+        border .2s ease,
+        box-shadow .2s ease;
+}
 
-      outline: none;
+.search-box:focus {
+    border-color: var(--red);
 
-      transition:
-        border 0.2s ease,
-        box-shadow 0.2s ease;
-
-    }
-
-
-    .search-box:focus {
-
-      border-color: var(--red);
-
-      box-shadow:
+    box-shadow:
         0 0 0 3px
-        rgba(181,18,23,0.12);
-
-    }
-
-
-    /* =========================================
-       INVENTORY GRID
-    ========================================= */
-
-    .inventory-grid {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(
-          auto-fill,
-          minmax(275px, 1fr)
-        );
-
-      gap: 28px;
-
-    }
+        rgba(167,25,31,.12);
+}
 
 
-    /* =========================================
-       FIREARM CARD
-    ========================================= */
+/* =====================================================
+   CATEGORY GROUPS
+===================================================== */
 
-    .firearm-card {
+.inventory-group {
+    margin-bottom: 55px;
+}
 
-      background: white;
+.inventory-group-title {
+    margin:
+        0 0 22px;
 
-      border:
-        1px solid #ddd;
+    padding-bottom: 10px;
 
-      border-radius: 7px;
+    border-bottom:
+        2px solid #d5d5d8;
 
-      overflow: hidden;
+    font-size: 25px;
 
-      box-shadow:
-        0 3px 12px
-        rgba(0,0,0,0.08);
+    text-transform: uppercase;
+}
 
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+.inventory-group-title::after {
+    content: "";
 
-    }
+    display: block;
+
+    width: 55px;
+    height: 3px;
+
+    margin-top: 10px;
+
+    background: var(--red);
+}
 
 
-    .firearm-card:hover {
+/* =====================================================
+   INVENTORY GRID
 
-      transform:
+   DESKTOP = EXACTLY 3 COLUMNS
+===================================================== */
+
+.inventory-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 28px;
+}
+
+
+/* =====================================================
+   FIREARM CARD
+===================================================== */
+
+.firearm-card {
+    min-width: 0;
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 7px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 3px 13px
+        rgba(0,0,0,.075);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.firearm-card:hover {
+    transform:
         translateY(-3px);
 
-      box-shadow:
+    box-shadow:
         0 8px 22px
-        rgba(0,0,0,0.13);
-
-    }
-
-
-    .firearm-image {
-
-      width: 100%;
-
-      height: 250px;
-
-      object-fit: contain;
-
-      background: #e9e9e9;
-
-      display: block;
-
-    }
+        rgba(0,0,0,.12);
+}
 
 
-    .no-photo {
+/* =====================================================
+   FIREARM IMAGE
+===================================================== */
 
-      width: 100%;
+.firearm-photo-button {
+    width: 100%;
 
-      height: 250px;
+    padding: 0;
 
-      background: #e3e3e3;
+    border: 0;
 
-      display: flex;
+    background: #eeeeef;
 
-      align-items: center;
+    cursor: zoom-in;
 
-      justify-content: center;
+    display: block;
+}
 
-      color: #777;
+.firearm-image {
+    width: 100%;
+    height: 265px;
 
-      font-size: 14px;
+    object-fit: contain;
 
-    }
+    display: block;
 
+    background: #eeeeef;
+}
 
-    .firearm-info {
+.no-photo {
+    width: 100%;
+    height: 265px;
 
-      padding: 20px;
+    display: flex;
 
-    }
+    align-items: center;
+    justify-content: center;
 
+    background: #eeeeef;
 
-    .firearm-type {
+    color: #777;
 
-      display: inline-block;
-
-      background: #ededed;
-
-      color: #444;
-
-      padding:
-        5px 9px;
-
-      border-radius: 3px;
-
-      font-size: 11px;
-
-      font-weight: 700;
-
-      text-transform: uppercase;
-
-      letter-spacing: 0.8px;
-
-      margin-bottom: 10px;
-
-    }
+    font-size: 14px;
+}
 
 
-    .firearm-info h3 {
+/* =====================================================
+   FIREARM INFORMATION
+===================================================== */
 
-      margin:
+.firearm-info {
+    padding: 21px;
+}
+
+.type-label {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    padding: 5px 8px;
+
+    background: #eeeeef;
+
+    border-radius: 3px;
+
+    color: #555;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: .7px;
+}
+
+.firearm-info h4 {
+    margin:
         0 0 12px;
 
-      font-family:
-        "Oswald",
-        sans-serif;
+    font-size: 24px;
 
-      font-size: 25px;
+    line-height: 1.2;
+}
 
-      line-height: 1.15;
+.item-number {
+    margin-bottom: 12px;
 
-    }
+    color: #747478;
 
+    font-size: 13px;
+}
 
-    .item-number {
+.firearm-details {
+    color: #505054;
 
-      color: #777;
+    font-size: 15px;
 
-      font-size: 13px;
+    line-height: 1.75;
+}
 
-      margin-bottom: 10px;
+.price {
+    margin-top: 15px;
 
-    }
+    padding-top: 14px;
 
+    border-top:
+        1px solid #e3e3e5;
 
-    .firearm-details {
+    color: #151515;
 
-      color: #555;
+    font-size: 23px;
 
-      font-size: 14px;
-
-      line-height: 1.7;
-
-    }
-
-
-    .price {
-
-      margin-top: 14px;
-
-      font-size: 23px;
-
-      font-weight: 700;
-
-      color: #111;
-
-    }
+    font-weight: 700;
+}
 
 
-    .description {
+/* =====================================================
+   DISCLAIMER
+===================================================== */
 
-      margin-top: 13px;
+.disclaimer {
+    max-width: 1000px;
 
-      color: #666;
+    margin:
+        10px auto 65px;
 
-      font-size: 14px;
+    padding:
+        20px 22px;
 
-      line-height: 1.5;
+    background: #ececef;
 
-    }
+    border-left:
+        4px solid var(--red);
 
+    color: #505054;
 
-    /* =========================================
-       EMPTY / LOADING
-    ========================================= */
+    font-size: 14px;
 
-    .message {
-
-      grid-column: 1 / -1;
-
-      text-align: center;
-
-      padding: 55px 20px;
-
-      color: #777;
-
-    }
+    line-height: 1.65;
+}
 
 
-    /* =========================================
-       FOOTER
-    ========================================= */
+/* =====================================================
+   MESSAGES
+===================================================== */
 
-    footer {
+.message {
+    grid-column: 1 / -1;
 
-      position: relative;
+    padding: 45px 20px;
 
-      min-height: 390px;
+    color: #737377;
 
-      background-color: var(--black);
+    text-align: center;
+}
 
-      background-image:
+
+/* =====================================================
+   PHOTO ZOOM
+===================================================== */
+
+.photo-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(0,0,0,.90);
+}
+
+.photo-modal.open {
+    display: flex;
+}
+
+.modal-image {
+    max-width: 95vw;
+    max-height: 90vh;
+
+    object-fit: contain;
+
+    background: white;
+
+    border-radius: 4px;
+}
+
+.close-modal {
+    position: fixed;
+
+    top: 20px;
+    right: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: black;
+
+    cursor: pointer;
+
+    font-size: 28px;
+
+    line-height: 1;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.site-footer {
+    min-height: 440px;
+
+    background-image:
         linear-gradient(
-          rgba(0,0,0,0.78),
-          rgba(0,0,0,0.88)
+            90deg,
+            rgba(5,5,6,.91),
+            rgba(5,5,6,.70)
         ),
         url("header-background.png");
 
-      background-size: cover;
+    background-size: cover;
+    background-position: center;
 
-      background-position: center;
+    color: white;
 
-      color: white;
+    display: flex;
+    align-items: center;
+}
 
-      display: flex;
+.footer-inner {
+    width: 100%;
+    max-width: 1250px;
 
-      align-items: center;
+    margin: auto;
 
-    }
+    padding: 55px 35px;
 
+    display: flex;
+    align-items: center;
 
-    .footer-content {
+    gap: 38px;
+}
 
-      width: 100%;
+.footer-logo {
+    width: 175px;
+    height: 175px;
 
-      max-width: 1250px;
+    object-fit: contain;
 
-      margin: 0 auto;
+    flex-shrink: 0;
+}
 
-      padding:
-        55px 30px;
+.footer-info h2 {
+    margin:
+        0 0 12px;
 
-      display: flex;
+    font-size: 34px;
 
-      align-items: center;
+    text-transform: uppercase;
+}
 
-      gap: 35px;
+.footer-red-line {
+    width: 65px;
+    height: 3px;
 
-    }
+    margin:
+        18px 0;
 
+    background: var(--red);
+}
 
-    .footer-logo {
+.footer-info p {
+    margin: 7px 0;
 
-      width: 150px;
+    color: #e0e0e0;
 
-      height: 150px;
+    line-height: 1.45;
+}
 
-      object-fit: contain;
+.footer-info a {
+    color: white;
 
-      flex-shrink: 0;
+    font-weight: 700;
 
-    }
+    text-decoration: none;
+}
 
+.footer-info a:hover {
+    text-decoration: underline;
+}
 
-    .footer-info h2 {
+.store-hours {
+    margin-top: 17px !important;
+}
 
-      margin: 0 0 15px;
+.copyright {
+    margin-top: 20px !important;
 
-      font-family:
-        "Oswald",
-        sans-serif;
+    color: #aaa !important;
 
-      font-size: 34px;
+    font-size: 13px;
+}
 
-      text-transform: uppercase;
 
-    }
+/* =====================================================
+   BACK TO TOP
+===================================================== */
 
+#backToTop {
+    position: fixed;
 
-    .footer-info p {
+    right: 22px;
+    bottom: 22px;
 
-      margin: 8px 0;
+    z-index: 1000;
 
-      color: #d0d0d0;
+    width: 48px;
+    height: 48px;
 
-      font-size: 16px;
+    border: 0;
 
-    }
+    border-radius: 50%;
 
+    background: var(--red);
 
-    .footer-phone {
+    color: white;
 
-      font-size: 20px !important;
+    cursor: pointer;
 
-      font-weight: 700;
+    font-size: 22px;
 
-      color: white !important;
+    box-shadow:
+        0 4px 14px
+        rgba(0,0,0,.28);
 
-    }
+    opacity: 0;
 
+    visibility: hidden;
 
-    .footer-line {
+    transform:
+        translateY(8px);
 
-      width: 70px;
+    transition:
+        opacity .2s ease,
+        transform .2s ease,
+        visibility .2s ease,
+        background .2s ease;
+}
 
-      height: 3px;
+#backToTop.show {
+    opacity: 1;
 
-      background: var(--red);
+    visibility: visible;
 
-      margin:
-        20px 0;
-
-    }
-
-
-    /* =========================================
-       BACK TO TOP
-    ========================================= */
-
-    #backToTop {
-
-      position: fixed;
-
-      right: 22px;
-
-      bottom: 22px;
-
-      width: 48px;
-
-      height: 48px;
-
-      border: none;
-
-      border-radius: 50%;
-
-      background: var(--red);
-
-      color: white;
-
-      font-size: 20px;
-
-      cursor: pointer;
-
-      opacity: 0;
-
-      visibility: hidden;
-
-      transform:
-        translateY(10px);
-
-      transition:
-        opacity 0.2s ease,
-        visibility 0.2s ease,
-        transform 0.2s ease;
-
-      box-shadow:
-        0 4px 12px
-        rgba(0,0,0,0.3);
-
-      z-index: 1000;
-
-    }
-
-
-    #backToTop.show {
-
-      opacity: 1;
-
-      visibility: visible;
-
-      transform:
+    transform:
         translateY(0);
+}
 
-    }
-
-
-    #backToTop:hover {
-
-      background:
+#backToTop:hover {
+    background:
         var(--red-dark);
+}
 
+
+/* =====================================================
+   TABLETS
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .inventory-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
+    .site-header {
+        min-height: 420px;
+    }
 
-    /* =========================================
-       MOBILE
-    ========================================= */
+    .header-logo {
+        width: 170px;
+        height: 170px;
+    }
 
-    @media (max-width: 700px) {
-
-      header {
-
-        min-height: 430px;
-
-        background-position:
-          center center;
-
-      }
+}
 
 
-      .header-content {
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .site-header {
+        min-height: 440px;
+
+        background-position: center;
+    }
+
+    .header-inner {
+        padding:
+            35px 20px;
 
         flex-direction: column;
 
         justify-content: center;
 
-        text-align: center;
-
-        padding:
-          35px 20px;
-
-      }
-
-
-      .header-logo {
-
-        width: 145px;
-
-        height: 145px;
-
-      }
-
-
-      .store-title {
-
-        font-size: 48px;
-
-      }
-
-
-      .store-subtitle {
-
-        font-size: 16px;
-
-      }
-
-
-      .red-line {
-
-        margin:
-          20px auto 0;
-
-      }
-
-
-      .nav-button {
-
-        padding:
-          14px 12px;
-
-        font-size: 14px;
-
-      }
-
-
-      .inventory-grid {
-
-        grid-template-columns: 1fr;
-
-      }
-
-
-      .content {
-
-        padding:
-          40px 15px 65px;
-
-      }
-
-
-      .footer {
-
-        min-height: 430px;
-
-      }
-
-
-      .footer-content {
-
-        flex-direction: column;
+        gap: 20px;
 
         text-align: center;
-
-        padding:
-          45px 20px;
-
-      }
-
-
-      .footer-logo {
-
-        width: 125px;
-
-        height: 125px;
-
-      }
-
-
-      .footer-line {
-
-        margin:
-          20px auto;
-
-      }
-
     }
 
+    .header-logo {
+        width: 140px;
+        height: 140px;
+    }
 
-  </style>
+    .header-copy h1 {
+        font-size: 43px;
+    }
 
+    .header-copy p {
+        font-size: 16px;
+    }
+
+    .header-accent {
+        margin:
+            20px auto 0;
+    }
+
+    .main-nav {
+        position: relative;
+    }
+
+    .nav-button {
+        padding:
+            14px 10px;
+
+        font-size: 13px;
+    }
+
+    .page-intro {
+        padding:
+            42px 18px 36px;
+    }
+
+    .content {
+        padding:
+            40px 15px 60px;
+    }
+
+    .inventory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .firearm-image,
+    .no-photo {
+        height: 250px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+
+        padding:
+            45px 20px;
+
+        text-align: center;
+    }
+
+    .footer-logo {
+        width: 135px;
+        height: 135px;
+    }
+
+    .footer-red-line {
+        margin:
+            18px auto;
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION ACCESSIBILITY
+===================================================== */
+
+@media (
+    prefers-reduced-motion: reduce
+) {
+
+    * {
+        scroll-behavior: auto !important;
+
+        animation-duration:
+            .01ms !important;
+
+        transition-duration:
+            .01ms !important;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-  <!-- =====================================
-       HEADER
-  ====================================== -->
+<!-- ==================================================
+     HEADER
+=================================================== -->
 
-  <header>
+<header class="site-header">
 
-    <div class="header-content">
+    <div class="header-inner">
 
-      <img
-        src="logo.png"
-        alt="Mount Sterling Firearms logo"
-        class="header-logo"
-      >
+        <img
+            src="MSF NEW LOGO.png"
+            class="header-logo"
+            alt="Mount Sterling Firearms logo"
+        >
 
-      <div class="header-text">
+        <div class="header-copy">
 
-        <h1 class="store-title">
-          Mount Sterling Firearms
-        </h1>
+            <h1>
+                Mount Sterling Firearms
+            </h1>
 
-        <div class="store-subtitle">
-          Located inside Johnny's Power Sports
+            <p>
+                Located Inside Johnny's Power Sports
+            </p>
+
+            <div class="header-accent"></div>
+
         </div>
-
-        <div class="red-line"></div>
-
-      </div>
 
     </div>
 
-  </header>
+</header>
 
 
-  <!-- =====================================
-       NAVIGATION
-  ====================================== -->
+<!-- ==================================================
+     NAVIGATION
+=================================================== -->
 
-  <nav>
-
-    <button
-      class="nav-button active"
-      data-page="home"
-    >
-      Home
-    </button>
-
+<nav class="main-nav">
 
     <button
-      class="nav-button"
-      data-page="pistols"
+        class="nav-button active"
+        data-page="home"
     >
-      Pistols
+        Home
     </button>
-
 
     <button
-      class="nav-button"
-      data-page="rifles"
+        class="nav-button"
+        data-page="pistols"
     >
-      Rifles
+        Pistols
     </button>
-
 
     <button
-      class="nav-button"
-      data-page="shotguns"
+        class="nav-button"
+        data-page="rifles"
     >
-      Shotguns
+        Rifles
     </button>
-
 
     <button
-      class="nav-button"
-      data-page="muzzle-loaders"
+        class="nav-button"
+        data-page="shotguns"
     >
-      Muzzle Loaders
+        Shotguns
     </button>
 
-  </nav>
-
-
-  <!-- =====================================
-       HOME
-  ====================================== -->
-
-  <main>
-
-    <section
-      id="home"
-      class="page active"
+    <button
+        class="nav-button"
+        data-page="muzzleloaders"
     >
+        Muzzleloaders
+    </button>
 
-      <div class="home-intro">
+</nav>
+
+
+<main>
+
+
+<!-- ==================================================
+     HOME
+=================================================== -->
+
+<section
+    id="home"
+    class="page active"
+>
+
+    <div class="page-intro">
 
         <h2>
-          Browse Our Current Firearm Inventory
+            Browse Our Current Firearms Inventory
         </h2>
 
+        <div class="intro-line"></div>
+
         <p>
-          Inventory changes frequently. Please contact or visit
-          Mount Sterling Firearms to confirm current availability.
+            Inventory changes frequently.
+            Please contact Mount Sterling Firearms
+            or visit to confirm current availability.
         </p>
 
-        <div class="inventory-notice">
-
-          Inventory changes frequently. Please contact or visit
-          Mount Sterling Firearms to confirm current availability
-          and complete any transaction in accordance with applicable laws.
-
-        </div>
-
-      </div>
+    </div>
 
 
-      <div class="content">
+    <div class="content">
 
         <div class="section-heading">
 
-          <h2>
-            Latest Inventory
-          </h2>
+            <h3>
+                Latest Inventory
+            </h3>
 
-          <p>
-            Our four newest available firearms.
-          </p>
+            <p>
+                Our four newest available firearms.
+            </p>
 
         </div>
 
 
         <div class="search-area">
 
-          <input
-            type="search"
-            id="homeSearch"
-            class="search-box"
-            placeholder="Search current inventory..."
-            aria-label="Search current inventory"
-          >
+            <input
+                type="search"
+                id="homeSearch"
+                class="search-box"
+                placeholder="Search inventory..."
+                aria-label="Search inventory"
+            >
 
         </div>
 
 
         <div
-          id="latestInventory"
-          class="inventory-grid"
+            id="latestInventory"
+            class="inventory-grid"
         >
 
-          <div class="message">
-            Loading inventory...
-          </div>
+            <div class="message">
+                Loading inventory...
+            </div>
 
         </div>
 
-      </div>
-
-    </section>
+    </div>
 
 
-    <!-- =====================================
-         PISTOLS
-    ====================================== -->
+    <div class="disclaimer">
 
-    <section
-      id="pistols"
-      class="page"
-    >
+        <strong>Firearm Sales Disclaimer:</strong>
 
-      <div class="content">
+        We do not offer online firearm purchasing
+        or direct-to-consumer firearm shipping.
+        Firearm purchases must be completed
+        in store. Firearms may be sent to a
+        licensed FFL for transfer in accordance
+        with applicable federal, state, and local laws.
 
-        <div class="section-heading">
+    </div>
 
-          <h2>
+</section>
+
+
+<!-- ==================================================
+     PISTOLS
+=================================================== -->
+
+<section
+    id="pistols"
+    class="page"
+>
+
+    <div class="page-intro">
+
+        <h2>
             Pistols
-          </h2>
-
-          <p>
-            Current pistol and revolver inventory.
-          </p>
-
-        </div>
-
-
-        <div class="search-area">
-
-          <input
-            type="search"
-            id="pistolSearch"
-            class="search-box"
-            placeholder="Search pistols and revolvers..."
-            aria-label="Search pistols and revolvers"
-          >
-
-        </div>
-
-
-        <div
-          id="pistolInventory"
-          class="inventory-grid"
-        >
-
-          <div class="message">
-            Loading inventory...
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================
-         RIFLES
-    ====================================== -->
-
-    <section
-      id="rifles"
-      class="page"
-    >
-
-      <div class="content">
-
-        <div class="section-heading">
-
-          <h2>
-            Rifles
-          </h2>
-
-        </div>
-
-
-        <div class="search-area">
-
-          <input
-            type="search"
-            id="rifleSearch"
-            class="search-box"
-            placeholder="Search rifles..."
-            aria-label="Search rifles"
-          >
-
-        </div>
-
-
-        <div
-          id="rifleInventory"
-          class="inventory-grid"
-        >
-
-          <div class="message">
-            Loading inventory...
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================
-         SHOTGUNS
-    ====================================== -->
-
-    <section
-      id="shotguns"
-      class="page"
-    >
-
-      <div class="content">
-
-        <div class="section-heading">
-
-          <h2>
-            Shotguns
-          </h2>
-
-        </div>
-
-
-        <div class="search-area">
-
-          <input
-            type="search"
-            id="shotgunSearch"
-            class="search-box"
-            placeholder="Search shotguns..."
-            aria-label="Search shotguns"
-          >
-
-        </div>
-
-
-        <div
-          id="shotgunInventory"
-          class="inventory-grid"
-        >
-
-          <div class="message">
-            Loading inventory...
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================
-         MUZZLE LOADERS
-    ====================================== -->
-
-    <section
-      id="muzzle-loaders"
-      class="page"
-    >
-
-      <div class="content">
-
-        <div class="section-heading">
-
-          <h2>
-            Muzzle Loaders
-          </h2>
-
-        </div>
-
-
-        <div class="search-area">
-
-          <input
-            type="search"
-            id="muzzleSearch"
-            class="search-box"
-            placeholder="Search muzzle loaders..."
-            aria-label="Search muzzle loaders"
-          >
-
-        </div>
-
-
-        <div
-          id="muzzleInventory"
-          class="inventory-grid"
-        >
-
-          <div class="message">
-            Loading inventory...
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =====================================
-       FOOTER
-  ====================================== -->
-
-  <footer>
-
-    <div class="footer-content">
-
-      <img
-        src="logo.png"
-        alt="Mount Sterling Firearms logo"
-        class="footer-logo"
-      >
-
-
-      <div class="footer-info">
-
-        <h2>
-          Mount Sterling Firearms
         </h2>
 
-        <div class="footer-line"></div>
+        <div class="intro-line"></div>
 
         <p>
-          700 Vance Drive
+            Browse our current pistol and
+            revolver inventory.
         </p>
-
-        <p>
-          Mt. Sterling, KY 40353
-        </p>
-
-        <p class="footer-phone">
-          859-497-0330
-        </p>
-
-      </div>
 
     </div>
 
-  </footer>
+
+    <div class="content">
+
+        <div class="search-area">
+
+            <input
+                type="search"
+                id="pistolSearch"
+                class="search-box"
+                placeholder="Search pistols or revolvers..."
+                aria-label="Search pistols and revolvers"
+            >
+
+        </div>
 
 
-  <!-- =====================================
-       BACK TO TOP
-  ====================================== -->
+        <div id="pistolInventory"></div>
 
-  <button
+    </div>
+
+
+    <div class="disclaimer">
+
+        <strong>Firearm Sales Disclaimer:</strong>
+
+        We do not offer online firearm purchasing
+        or direct-to-consumer firearm shipping.
+        Firearm purchases must be completed
+        in store. Firearms may be sent to a
+        licensed FFL for transfer in accordance
+        with applicable federal, state, and local laws.
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     RIFLES
+=================================================== -->
+
+<section
+    id="rifles"
+    class="page"
+>
+
+    <div class="page-intro">
+
+        <h2>
+            Rifles
+        </h2>
+
+        <div class="intro-line"></div>
+
+        <p>
+            Browse our current rifle inventory.
+        </p>
+
+    </div>
+
+
+    <div class="content">
+
+        <div class="search-area">
+
+            <input
+                type="search"
+                id="rifleSearch"
+                class="search-box"
+                placeholder="Search rifles..."
+                aria-label="Search rifles"
+            >
+
+        </div>
+
+
+        <div id="rifleInventory"></div>
+
+    </div>
+
+
+    <div class="disclaimer">
+
+        <strong>Firearm Sales Disclaimer:</strong>
+
+        We do not offer online firearm purchasing
+        or direct-to-consumer firearm shipping.
+        Firearm purchases must be completed
+        in store. Firearms may be sent to a
+        licensed FFL for transfer in accordance
+        with applicable federal, state, and local laws.
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     SHOTGUNS
+=================================================== -->
+
+<section
+    id="shotguns"
+    class="page"
+>
+
+    <div class="page-intro">
+
+        <h2>
+            Shotguns
+        </h2>
+
+        <div class="intro-line"></div>
+
+        <p>
+            Browse our current shotgun inventory.
+        </p>
+
+    </div>
+
+
+    <div class="content">
+
+        <div class="search-area">
+
+            <input
+                type="search"
+                id="shotgunSearch"
+                class="search-box"
+                placeholder="Search shotguns..."
+                aria-label="Search shotguns"
+            >
+
+        </div>
+
+
+        <div id="shotgunInventory"></div>
+
+    </div>
+
+
+    <div class="disclaimer">
+
+        <strong>Firearm Sales Disclaimer:</strong>
+
+        We do not offer online firearm purchasing
+        or direct-to-consumer firearm shipping.
+        Firearm purchases must be completed
+        in store. Firearms may be sent to a
+        licensed FFL for transfer in accordance
+        with applicable federal, state, and local laws.
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     MUZZLELOADERS
+=================================================== -->
+
+<section
+    id="muzzleloaders"
+    class="page"
+>
+
+    <div class="page-intro">
+
+        <h2>
+            Muzzleloaders
+        </h2>
+
+        <div class="intro-line"></div>
+
+        <p>
+            Browse our current muzzleloader inventory.
+        </p>
+
+    </div>
+
+
+    <div class="content">
+
+        <div class="search-area">
+
+            <input
+                type="search"
+                id="muzzleSearch"
+                class="search-box"
+                placeholder="Search muzzleloaders..."
+                aria-label="Search muzzleloaders"
+            >
+
+        </div>
+
+
+        <div id="muzzleInventory"></div>
+
+    </div>
+
+
+    <div class="disclaimer">
+
+        <strong>Firearm Sales Disclaimer:</strong>
+
+        We do not offer online firearm purchasing
+        or direct-to-consumer firearm shipping.
+        Firearm purchases must be completed
+        in store. Firearms may be sent to a
+        licensed FFL for transfer in accordance
+        with applicable federal, state, and local laws.
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ==================================================
+     FOOTER
+=================================================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-inner">
+
+        <img
+            src="MSF NEW LOGO.png"
+            class="footer-logo"
+            alt="Mount Sterling Firearms logo"
+        >
+
+
+        <div class="footer-info">
+
+            <h2>
+                Mount Sterling Firearms
+            </h2>
+
+            <div class="footer-red-line"></div>
+
+
+            <p>
+                700 Vance Drive
+            </p>
+
+            <p>
+                Mt. Sterling, KY 40353
+            </p>
+
+
+            <p>
+                <a href="tel:+18594970330">
+                    859-497-0330
+                </a>
+            </p>
+
+
+            <p class="store-hours">
+
+                <strong>Store Hours</strong><br>
+
+                Monday-Friday:
+                9:00am-5:00pm<br>
+
+                Saturday:
+                10:00am-2:00pm
+
+            </p>
+
+
+            <p class="copyright">
+
+                Copyright © 2026
+                Mount Sterling Firearms
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ==================================================
+     PHOTO ZOOM WINDOW
+=================================================== -->
+
+<div
+    id="photoModal"
+    class="photo-modal"
+    aria-hidden="true"
+>
+
+    <button
+        id="closeModal"
+        class="close-modal"
+        aria-label="Close enlarged photo"
+    >
+        ×
+    </button>
+
+
+    <img
+        id="modalImage"
+        class="modal-image"
+        alt=""
+    >
+
+</div>
+
+
+<!-- ==================================================
+     BACK TO TOP
+=================================================== -->
+
+<button
     id="backToTop"
     aria-label="Back to top"
     title="Back to top"
-  >
+>
     ↑
-  </button>
+</button>
 
 
-  <!-- =====================================
-       JAVASCRIPT
-  ====================================== -->
+<script>
 
-  <script>
+/* =====================================================
+   GOOGLE SHEET
 
+   Website Inventory tab
+   gid = 0
+===================================================== */
 
-    /*
-      ==================================================
-      MASTER GOOGLE SHEET
-
-      IMPORTANT:
-      Replace the text below with the CSV link from
-      your ACTUAL MASTER inventory spreadsheet.
-
-      Do NOT use the old example spreadsheet link.
-      ==================================================
-    */
+const spreadsheetURL =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vRNSW6WUibosgNefGvqFH_6DcmbGGzu3Tm9DmEezPEuCrAlA2IfH0GuvzvR99bUEUsIVVyEt9sA6VB1/pub?gid=0&single=true&output=csv";
 
 
-    const spreadsheetURL =
-      "PASTE_YOUR_REAL_MASTER_CSV_LINK_HERE";
+let inventory = [];
 
 
-    /*
-      ==================================================
-      INVENTORY STORAGE
-      ==================================================
-    */
+/* =====================================================
+   BASIC CLEANING
+===================================================== */
 
-    let inventory = [];
+function clean(value) {
 
+    return String(
+        value ?? ""
+    ).trim();
 
-    /*
-      ==================================================
-      CLEAN TEXT
-      ==================================================
-    */
-
-    function clean(value) {
-
-      return String(value || "")
-        .trim();
-
-    }
+}
 
 
-    /*
-      ==================================================
-      NORMALIZE FIREARM TYPE
+/* =====================================================
+   SAFELY DISPLAY SPREADSHEET TEXT
+===================================================== */
 
-      Revolvers are automatically treated as Pistols.
-      ==================================================
-    */
+function escapeHTML(value) {
 
-    function getCategory(type) {
+    return clean(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
 
-      const normalized =
+}
+
+
+/* =====================================================
+   CATEGORY RULES
+
+   REVOLVERS GO UNDER PISTOLS
+===================================================== */
+
+function categoryOf(type) {
+
+    const value =
         clean(type)
-          .toLowerCase()
-          .replace(/[-_]/g, " ")
-          .replace(/\s+/g, " ");
+        .toLowerCase()
+        .replace(/[-_]/g, " ")
+        .replace(/\s+/g, " ");
 
 
-      if (
-        normalized === "pistol" ||
-        normalized === "pistols" ||
-        normalized === "revolver" ||
-        normalized === "revolvers"
-      ) {
+    if (
+        value === "pistol" ||
+        value === "pistols" ||
+        value === "revolver" ||
+        value === "revolvers"
+    ) {
 
         return "pistol";
 
-      }
+    }
 
 
-      if (
-        normalized === "rifle" ||
-        normalized === "rifles"
-      ) {
+    if (
+        value === "rifle" ||
+        value === "rifles"
+    ) {
 
         return "rifle";
-
-      }
-
-
-      if (
-        normalized === "shotgun" ||
-        normalized === "shotguns"
-      ) {
-
-        return "shotgun";
-
-      }
-
-
-      if (
-        normalized === "muzzle loader" ||
-        normalized === "muzzle loaders" ||
-        normalized === "muzzleloader" ||
-        normalized === "muzzleloaders"
-      ) {
-
-        return "muzzle-loader";
-
-      }
-
-
-      return normalized;
 
     }
 
 
-    /*
-      ==================================================
-      CSV PARSER
-      ==================================================
-    */
+    if (
+        value === "shotgun" ||
+        value === "shotguns"
+    ) {
 
-    function parseCSV(text) {
+        return "shotgun";
 
-      const rows = [];
-
-      let row = [];
-
-      let value = "";
-
-      let insideQuotes = false;
+    }
 
 
-      for (
+    if (
+        value === "muzzleloader" ||
+        value === "muzzleloaders" ||
+        value === "muzzle loader" ||
+        value === "muzzle loaders"
+    ) {
+
+        return "muzzleloader";
+
+    }
+
+
+    return value;
+
+}
+
+
+/* =====================================================
+   ONLY AVAILABLE ITEMS GO ONLINE
+===================================================== */
+
+function isAvailable(item) {
+
+    return (
+        clean(item.Status)
+        .toLowerCase()
+        === "available"
+    );
+
+}
+
+
+/* =====================================================
+   CSV PARSER
+
+   Handles commas and quotation marks properly.
+===================================================== */
+
+function parseCSV(text) {
+
+    const rows = [];
+
+    let row = [];
+    let value = "";
+    let quoted = false;
+
+
+    for (
         let i = 0;
         i < text.length;
         i++
-      ) {
+    ) {
 
         const character =
-          text[i];
+            text[i];
 
-        const nextCharacter =
-          text[i + 1];
+        const next =
+            text[i + 1];
 
 
         if (
-          character === '"' &&
-          insideQuotes &&
-          nextCharacter === '"'
+            character === '"' &&
+            quoted &&
+            next === '"'
         ) {
 
-          value += '"';
-
-          i++;
-
-        }
-
-        else if (
-          character === '"'
-        ) {
-
-          insideQuotes =
-            !insideQuotes;
-
-        }
-
-        else if (
-          character === "," &&
-          !insideQuotes
-        ) {
-
-          row.push(
-            value.trim()
-          );
-
-          value = "";
-
-        }
-
-        else if (
-          (
-            character === "\n" ||
-            character === "\r"
-          ) &&
-          !insideQuotes
-        ) {
-
-          if (
-            character === "\r" &&
-            nextCharacter === "\n"
-          ) {
+            value += '"';
 
             i++;
 
-          }
+        }
+
+        else if (
+            character === '"'
+        ) {
+
+            quoted = !quoted;
+
+        }
+
+        else if (
+            character === "," &&
+            !quoted
+        ) {
+
+            row.push(
+                value.trim()
+            );
+
+            value = "";
+
+        }
+
+        else if (
+            (
+                character === "\n" ||
+                character === "\r"
+            ) &&
+            !quoted
+        ) {
+
+            if (
+                character === "\r" &&
+                next === "\n"
+            ) {
+
+                i++;
+
+            }
 
 
-          row.push(
-            value.trim()
-          );
+            row.push(
+                value.trim()
+            );
 
-          rows.push(row);
 
-          row = [];
+            rows.push(row);
 
-          value = "";
+
+            row = [];
+
+            value = "";
 
         }
 
         else {
 
-          value += character;
+            value += character;
 
         }
 
-      }
+    }
 
 
-      if (
-        value.length > 0 ||
-        row.length > 0
-      ) {
+    if (
+        value.length ||
+        row.length
+    ) {
 
         row.push(
-          value.trim()
+            value.trim()
         );
 
         rows.push(row);
 
-      }
-
-
-      return rows;
-
     }
 
 
-    /*
-      ==================================================
-      GOOGLE DRIVE PHOTO LINK
-      ==================================================
-    */
+    return rows;
 
-    function getPhotoURL(photo) {
+}
 
-      photo =
+
+/* =====================================================
+   GOOGLE DRIVE PHOTO LINKS
+===================================================== */
+
+function getPhotoURL(photo) {
+
+    const value =
         clean(photo);
 
 
-      if (!photo) {
+    if (!value) {
 
         return "";
 
-      }
+    }
 
 
-      const match =
-        photo.match(
-          /\/file\/d\/([^/]+)/
+    /*
+       Standard Google Drive link:
+
+       drive.google.com/file/d/FILE-ID/view
+    */
+
+    let match =
+        value.match(
+            /\/file\/d\/([^/?]+)/
         );
 
 
-      if (match) {
+    if (match) {
 
         return (
-          "https://drive.google.com/thumbnail?id=" +
-          match[1] +
-          "&sz=w1200"
+            "https://drive.google.com/thumbnail?id=" +
+            encodeURIComponent(match[1]) +
+            "&sz=w1600"
         );
-
-      }
-
-
-      return photo;
 
     }
 
 
     /*
-      ==================================================
-      CREATE FIREARM CARD
-      ==================================================
+       Google Drive link containing ?id=
     */
 
-    function createCard(item) {
+    match =
+        value.match(
+            /[?&]id=([^&]+)/
+        );
 
-      const card =
-        document.createElement("article");
+
+    if (match) {
+
+        return (
+            "https://drive.google.com/thumbnail?id=" +
+            encodeURIComponent(match[1]) +
+            "&sz=w1600"
+        );
+
+    }
 
 
-      card.className =
+    /*
+       Already a normal image URL
+    */
+
+    return value;
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function matchesSearch(
+    item,
+    searchText
+) {
+
+    const search =
+        clean(searchText)
+        .toLowerCase();
+
+
+    if (!search) {
+
+        return true;
+
+    }
+
+
+    const searchable = [
+
+        item["Item Number"],
+        item.Make,
+        item.Model,
+        item.Caliber,
+        item.Condition,
+        item.Price,
+        item.Type
+
+    ]
+    .join(" ")
+    .toLowerCase();
+
+
+    return searchable.includes(
+        search
+    );
+
+}
+
+
+/* =====================================================
+   SORT HELPERS
+===================================================== */
+
+function alphabetical(
+    first,
+    second
+) {
+
+    return clean(first)
+        .localeCompare(
+            clean(second),
+            undefined,
+            {
+                numeric: true,
+                sensitivity: "base"
+            }
+        );
+
+}
+
+
+/* =====================================================
+   FIREARM CARD
+===================================================== */
+
+function createCard(item) {
+
+    const card =
+        document.createElement(
+            "article"
+        );
+
+
+    card.className =
         "firearm-card";
 
 
-      const photoURL =
+    const photoURL =
         getPhotoURL(
-          item.Photo
+            item.Photo
         );
 
 
-      let photoHTML = "";
+    const make =
+        escapeHTML(
+            item.Make
+        );
 
 
-      if (photoURL) {
+    const model =
+        escapeHTML(
+            item.Model
+        );
+
+
+    const caliber =
+        escapeHTML(
+            item.Caliber
+        );
+
+
+    const condition =
+        escapeHTML(
+            item.Condition
+        );
+
+
+    const price =
+        escapeHTML(
+            item.Price
+        );
+
+
+    const itemNumber =
+        escapeHTML(
+            item["Item Number"]
+        );
+
+
+    const type =
+        escapeHTML(
+            item.Type
+        );
+
+
+    let photoHTML;
+
+
+    if (photoURL) {
+
+        const safePhoto =
+            escapeHTML(
+                photoURL
+            );
+
 
         photoHTML = `
 
-          <img
-            class="firearm-image"
-            src="${photoURL}"
-            alt="${clean(item.Make)} ${clean(item.Model)}"
-            loading="lazy"
-            onerror="
-              this.style.display='none';
-              this.nextElementSibling.style.display='flex';
-            "
-          >
+            <button
+                class="firearm-photo-button"
+                type="button"
+                data-photo="${safePhoto}"
+                data-alt="${make} ${model}"
+                aria-label="Enlarge photo of ${make} ${model}"
+            >
 
-          <div
-            class="no-photo"
-            style="display:none;"
-          >
-            Photo unavailable
-          </div>
+                <img
+                    src="${safePhoto}"
+                    class="firearm-image"
+                    alt="${make} ${model}"
+                    loading="lazy"
+                    onerror="
+                        this.style.display='none';
+                        this.parentElement.nextElementSibling.style.display='flex';
+                    "
+                >
+
+            </button>
+
+
+            <div
+                class="no-photo"
+                style="display:none;"
+            >
+                Photo unavailable
+            </div>
 
         `;
 
-      }
+    }
 
-      else {
+    else {
 
         photoHTML = `
 
-          <div class="no-photo">
-            Photo coming soon
-          </div>
+            <div class="no-photo">
+                Photo coming soon
+            </div>
 
         `;
 
-      }
+    }
 
 
-      card.innerHTML = `
+    card.innerHTML = `
 
         ${photoHTML}
 
+
         <div class="firearm-info">
 
-          <span class="firearm-type">
-            ${clean(item.Type)}
-          </span>
+
+            <span class="type-label">
+                ${type}
+            </span>
 
 
-          <div class="item-number">
-            Item #${clean(item["Item Number"])}
-          </div>
-
-
-          <h3>
-            ${clean(item.Make)}
-            ${clean(item.Model)}
-          </h3>
-
-
-          <div class="firearm-details">
-
-            ${
-              clean(item.Caliber)
-                ? `
-                  <div>
-                    <strong>Caliber:</strong>
-                    ${clean(item.Caliber)}
-                  </div>
-                `
-                : ""
-            }
+            <h4>
+                ${make} ${model}
+            </h4>
 
 
             ${
-              clean(item.Condition)
-                ? `
-                  <div>
-                    <strong>Condition:</strong>
-                    ${clean(item.Condition)}
-                  </div>
+                itemNumber
+                ?
                 `
-                : ""
+                <div class="item-number">
+                    Item #${itemNumber}
+                </div>
+                `
+                :
+                ""
             }
 
-          </div>
+
+            <div class="firearm-details">
 
 
-          ${
-            clean(item.Price)
-              ? `
+                ${
+                    caliber
+                    ?
+                    `
+                    <div>
+                        <strong>Caliber:</strong>
+                        ${caliber}
+                    </div>
+                    `
+                    :
+                    ""
+                }
+
+
+                ${
+                    condition
+                    ?
+                    `
+                    <div>
+                        <strong>Condition:</strong>
+                        ${condition}
+                    </div>
+                    `
+                    :
+                    ""
+                }
+
+
+            </div>
+
+
+            ${
+                price
+                ?
+                `
                 <div class="price">
-                  ${clean(item.Price)}
+                    ${price}
                 </div>
-              `
-              : ""
-          }
+                `
+                :
+                ""
+            }
 
-
-          ${
-            clean(item.Description)
-              ? `
-                <div class="description">
-                  ${clean(item.Description)}
-                </div>
-              `
-              : ""
-          }
 
         </div>
 
-      `;
+    `;
 
 
-      return card;
+    return card;
 
-    }
-
-
-    /*
-      ==================================================
-      IS THIS FIREARM AVAILABLE?
-      ==================================================
-    */
-
-    function isAvailable(item) {
-
-      return (
-        clean(item.Status)
-          .toLowerCase() === "available"
-      );
-
-    }
+}
 
 
-    /*
-      ==================================================
-      FILTER INVENTORY
-      ==================================================
-    */
+/* =====================================================
+   BUILD NORMAL GRID
+===================================================== */
 
-    function filterInventory(
-      category,
-      searchText = ""
-    ) {
+function buildGrid(items) {
 
-      const search =
-        clean(searchText)
-          .toLowerCase();
+    const grid =
+        document.createElement(
+            "div"
+        );
 
 
-      return inventory.filter(
+    grid.className =
+        "inventory-grid";
+
+
+    items.forEach(
         item => {
 
-          if (!isAvailable(item)) {
-
-            return false;
-
-          }
-
-
-          if (
-            category &&
-            getCategory(item.Type) !== category
-          ) {
-
-            return false;
-
-          }
-
-
-          if (!search) {
-
-            return true;
-
-          }
-
-
-          const searchable =
-            Object.values(item)
-              .join(" ")
-              .toLowerCase();
-
-
-          return searchable.includes(search);
+            grid.appendChild(
+                createCard(item)
+            );
 
         }
-      );
-
-    }
-
-
-    /*
-      ==================================================
-      DISPLAY CATEGORY
-      ==================================================
-    */
-
-    function displayCategory(
-      containerID,
-      category,
-      searchText = ""
-    ) {
-
-      const container =
-        document.getElementById(
-          containerID
-        );
-
-
-      if (!container) {
-
-        return;
-
-      }
-
-
-      container.innerHTML = "";
-
-
-      const results =
-        filterInventory(
-          category,
-          searchText
-        );
-
-
-      if (results.length === 0) {
-
-        container.innerHTML = `
-
-          <div class="message">
-
-            No current inventory found.
-
-          </div>
-
-        `;
-
-        return;
-
-      }
-
-
-      results.forEach(
-        item => {
-
-          container.appendChild(
-            createCard(item)
-          );
-
-        }
-      );
-
-    }
-
-
-    /*
-      ==================================================
-      DISPLAY FOUR LATEST AVAILABLE FIREARMS
-      ==================================================
-    */
-
-    function displayLatest(
-      searchText = ""
-    ) {
-
-      const container =
-        document.getElementById(
-          "latestInventory"
-        );
-
-
-      container.innerHTML = "";
-
-
-      const search =
-        clean(searchText)
-          .toLowerCase();
-
-
-      const available =
-        inventory.filter(
-          item => {
-
-            if (!isAvailable(item)) {
-
-              return false;
-
-            }
-
-
-            if (!search) {
-
-              return true;
-
-            }
-
-
-            const searchable =
-              Object.values(item)
-                .join(" ")
-                .toLowerCase();
-
-
-            return searchable.includes(
-              search
-            );
-
-          }
-        );
-
-
-      /*
-        The bottom of the spreadsheet is treated
-        as the newest inventory.
-      */
-
-      const latest =
-        available
-          .slice(-4)
-          .reverse();
-
-
-      if (latest.length === 0) {
-
-        container.innerHTML = `
-
-          <div class="message">
-
-            No current inventory found.
-
-          </div>
-
-        `;
-
-        return;
-
-      }
-
-
-      latest.forEach(
-        item => {
-
-          container.appendChild(
-            createCard(item)
-          );
-
-        }
-      );
-
-    }
-
-
-    /*
-      ==================================================
-      NAVIGATION
-      ==================================================
-    */
-
-    const navButtons =
-      document.querySelectorAll(
-        ".nav-button"
-      );
-
-
-    const pages =
-      document.querySelectorAll(
-        ".page"
-      );
-
-
-    navButtons.forEach(
-      button => {
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            const pageID =
-              button.dataset.page;
-
-
-            navButtons.forEach(
-              btn => {
-
-                btn.classList.remove(
-                  "active"
-                );
-
-              }
-            );
-
-
-            button.classList.add(
-              "active"
-            );
-
-
-            pages.forEach(
-              page => {
-
-                page.classList.remove(
-                  "active"
-                );
-
-              }
-            );
-
-
-            document
-              .getElementById(pageID)
-              .classList.add("active");
-
-
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            });
-
-          }
-        );
-
-      }
     );
 
 
+    return grid;
+
+}
+
+
+/* =====================================================
+   EMPTY MESSAGE
+===================================================== */
+
+function showEmpty(
+    container,
+    message
+) {
+
+    container.innerHTML = `
+
+        <div class="message">
+            ${message}
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   HOME
+
+   LATEST FOUR = LAST FOUR AVAILABLE
+   ROWS IN GOOGLE SHEET
+===================================================== */
+
+function displayLatest(
+    searchText = ""
+) {
+
+    const container =
+        document.getElementById(
+            "latestInventory"
+        );
+
+
+    container.innerHTML = "";
+
+
+    let items =
+        inventory.filter(
+            item =>
+                isAvailable(item) &&
+                matchesSearch(
+                    item,
+                    searchText
+                )
+        );
+
+
+    items =
+        items
+        .slice(-4)
+        .reverse();
+
+
+    if (!items.length) {
+
+        showEmpty(
+            container,
+            "No matching inventory found."
+        );
+
+        return;
+
+    }
+
+
+    items.forEach(
+        item => {
+
+            container.appendChild(
+                createCard(item)
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   PISTOLS
+
+   Sorted primarily by brand.
+
+   Smaller brands remain alphabetically with the
+   others instead of creating dozens of tiny headings.
+===================================================== */
+
+function displayPistols(
+    searchText = ""
+) {
+
+    const container =
+        document.getElementById(
+            "pistolInventory"
+        );
+
+
+    container.innerHTML = "";
+
+
+    const items =
+        inventory
+        .filter(
+            item =>
+                isAvailable(item) &&
+                categoryOf(item.Type)
+                    === "pistol" &&
+                matchesSearch(
+                    item,
+                    searchText
+                )
+        )
+        .sort(
+            (a, b) => {
+
+                return (
+                    alphabetical(
+                        a.Make,
+                        b.Make
+                    )
+                    ||
+                    alphabetical(
+                        a.Model,
+                        b.Model
+                    )
+                );
+
+            }
+        );
+
+
+    if (!items.length) {
+
+        showEmpty(
+            container,
+            "No matching pistols or revolvers found."
+        );
+
+        return;
+
+    }
+
+
+    container.appendChild(
+        buildGrid(items)
+    );
+
+}
+
+
+/* =====================================================
+   GROUP INVENTORY
+
+   Used for:
+   Rifles       = caliber → brand
+   Shotguns     = gauge/caliber → brand
+   Muzzleloaders = caliber → brand
+===================================================== */
+
+function displayGroupedInventory(
+    containerID,
+    category,
+    searchText = ""
+) {
+
+    const container =
+        document.getElementById(
+            containerID
+        );
+
+
+    container.innerHTML = "";
+
+
+    const items =
+        inventory
+        .filter(
+            item =>
+                isAvailable(item) &&
+                categoryOf(item.Type)
+                    === category &&
+                matchesSearch(
+                    item,
+                    searchText
+                )
+        );
+
+
+    if (!items.length) {
+
+        showEmpty(
+            container,
+            "No matching inventory found."
+        );
+
+        return;
+
+    }
+
+
     /*
-      ==================================================
-      SEARCH
-      ==================================================
+       Group by Caliber.
+
+       For shotguns, the Caliber column can contain
+       values such as 12 Gauge, 20 Gauge, .410, etc.
     */
 
-    document
-      .getElementById("homeSearch")
-      .addEventListener(
-        "input",
-        event => {
-
-          displayLatest(
-            event.target.value
-          );
-
-        }
-      );
+    const groups = {};
 
 
-    document
-      .getElementById("pistolSearch")
-      .addEventListener(
-        "input",
-        event => {
+    items.forEach(
+        item => {
 
-          displayCategory(
-            "pistolInventory",
-            "pistol",
-            event.target.value
-          );
+            const caliber =
+                clean(item.Caliber)
+                || "Other";
+
+
+            if (!groups[caliber]) {
+
+                groups[caliber] = [];
+
+            }
+
+
+            groups[caliber].push(
+                item
+            );
 
         }
-      );
+    );
 
 
-    document
-      .getElementById("rifleSearch")
-      .addEventListener(
-        "input",
-        event => {
+    const groupNames =
+        Object.keys(groups)
+        .sort(
+            alphabetical
+        );
 
-          displayCategory(
-            "rifleInventory",
-            "rifle",
-            event.target.value
-          );
+
+    groupNames.forEach(
+        groupName => {
+
+            const section =
+                document.createElement(
+                    "section"
+                );
+
+
+            section.className =
+                "inventory-group";
+
+
+            const heading =
+                document.createElement(
+                    "h3"
+                );
+
+
+            heading.className =
+                "inventory-group-title";
+
+
+            heading.textContent =
+                groupName;
+
+
+            section.appendChild(
+                heading
+            );
+
+
+            /*
+               Within each caliber/gauge,
+               sort by brand, then model.
+            */
+
+            groups[groupName]
+                .sort(
+                    (a, b) => {
+
+                        return (
+                            alphabetical(
+                                a.Make,
+                                b.Make
+                            )
+                            ||
+                            alphabetical(
+                                a.Model,
+                                b.Model
+                            )
+                        );
+
+                    }
+                );
+
+
+            section.appendChild(
+                buildGrid(
+                    groups[groupName]
+                )
+            );
+
+
+            container.appendChild(
+                section
+            );
 
         }
-      );
+    );
+
+}
 
 
-    document
-      .getElementById("shotgunSearch")
-      .addEventListener(
-        "input",
-        event => {
+/* =====================================================
+   DISPLAY EVERYTHING
+===================================================== */
 
-          displayCategory(
-            "shotgunInventory",
-            "shotgun",
-            event.target.value
-          );
+function displayEverything() {
 
-        }
-      );
-
-
-    document
-      .getElementById("muzzleSearch")
-      .addEventListener(
-        "input",
-        event => {
-
-          displayCategory(
-            "muzzleInventory",
-            "muzzle-loader",
-            event.target.value
-          );
-
-        }
-      );
+    displayLatest(
+        document
+        .getElementById(
+            "homeSearch"
+        )
+        .value
+    );
 
 
-    /*
-      ==================================================
-      LOAD GOOGLE SHEET
-      ==================================================
-    */
+    displayPistols(
+        document
+        .getElementById(
+            "pistolSearch"
+        )
+        .value
+    );
 
-    async function loadInventory() {
 
-      try {
+    displayGroupedInventory(
+        "rifleInventory",
+        "rifle",
+        document
+        .getElementById(
+            "rifleSearch"
+        )
+        .value
+    );
 
-        if (
-          spreadsheetURL ===
-         const spreadsheetURL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRNSW6WUibosgNefGvqFH_6DcmbGGzu3Tm9DmEezPEuCrAlA2IfH0GuvzvR99bUEUsIVVyEt9sA6VB1/pub?output=csv";
-        ) {
 
-          throw new Error(
-            "Master spreadsheet URL has not been added yet."
-          );
+    displayGroupedInventory(
+        "shotgunInventory",
+        "shotgun",
+        document
+        .getElementById(
+            "shotgunSearch"
+        )
+        .value
+    );
 
-        }
+
+    displayGroupedInventory(
+        "muzzleInventory",
+        "muzzleloader",
+        document
+        .getElementById(
+            "muzzleSearch"
+        )
+        .value
+    );
+
+}
+
+
+/* =====================================================
+   LOAD GOOGLE SHEET
+===================================================== */
+
+async function loadInventory() {
+
+    try {
+
+        /*
+           Timestamp prevents the browser from
+           hanging onto an old copy of inventory.
+        */
+
+        const url =
+            spreadsheetURL +
+            "&refresh=" +
+            Date.now();
 
 
         const response =
-          await fetch(
-            spreadsheetURL +
-            "&cache=" +
-            Date.now()
-          );
+            await fetch(
+                url,
+                {
+                    cache: "no-store"
+                }
+            );
 
 
         if (!response.ok) {
 
-          throw new Error(
-            "Unable to load spreadsheet."
-          );
+            throw new Error(
+                "Spreadsheet could not be loaded."
+            );
 
         }
 
 
         const csv =
-          await response.text();
+            await response.text();
 
 
         const rows =
-          parseCSV(csv);
+            parseCSV(csv);
 
 
         if (
-          rows.length < 2
+            rows.length < 1
         ) {
 
-          throw new Error(
-            "No inventory was found."
-          );
+            throw new Error(
+                "Spreadsheet is empty."
+            );
 
         }
 
 
         const headers =
-          rows[0].map(
-            header =>
-              header.trim()
-          );
-
-
-        inventory =
-          rows
-            .slice(1)
-            .filter(
-              row =>
-                row.some(
-                  cell =>
-                    clean(cell)
-                )
-            )
+            rows[0]
             .map(
-              row => {
-
-                const item = {};
-
-
-                headers.forEach(
-                  (header, index) => {
-
-                    item[header] =
-                      row[index] || "";
-
-                  }
-                );
-
-
-                return item;
-
-              }
+                header =>
+                    clean(header)
             );
 
 
-        /*
-          DISPLAY INVENTORY
-        */
+        inventory =
+            rows
+            .slice(1)
+            .filter(
+                row =>
+                    row.some(
+                        cell =>
+                            clean(cell)
+                    )
+            )
+            .map(
+                row => {
 
-        displayLatest();
-
-
-        displayCategory(
-          "pistolInventory",
-          "pistol"
-        );
-
-
-        displayCategory(
-          "rifleInventory",
-          "rifle"
-        );
+                    const item = {};
 
 
-        displayCategory(
-          "shotgunInventory",
-          "shotgun"
-        );
+                    headers.forEach(
+                        (
+                            header,
+                            index
+                        ) => {
+
+                            item[header] =
+                                row[index]
+                                ?? "";
+
+                        }
+                    );
 
 
-        displayCategory(
-          "muzzleInventory",
-          "muzzle-loader"
-        );
+                    return item;
+
+                }
+            );
 
 
-      }
-
-      catch (error) {
-
-        console.error(
-          error
-        );
-
-
-        const message = `
-
-          <div class="message">
-
-            Inventory is temporarily unavailable.
-
-          </div>
-
-        `;
-
-
-        document
-          .getElementById(
-            "latestInventory"
-          )
-          .innerHTML =
-            message;
-
-
-        document
-          .getElementById(
-            "pistolInventory"
-          )
-          .innerHTML =
-            message;
-
-
-        document
-          .getElementById(
-            "rifleInventory"
-          )
-          .innerHTML =
-            message;
-
-
-        document
-          .getElementById(
-            "shotgunInventory"
-          )
-          .innerHTML =
-            message;
-
-
-        document
-          .getElementById(
-            "muzzleInventory"
-          )
-          .innerHTML =
-            message;
-
-      }
+        displayEverything();
 
     }
 
+    catch (error) {
 
-    /*
-      ==================================================
-      BACK TO TOP
-      ==================================================
-    */
-
-    const backToTop =
-      document.getElementById(
-        "backToTop"
-      );
+        console.error(error);
 
 
-    window.addEventListener(
-      "scroll",
-      () => {
+        const message =
+            "Inventory is temporarily unavailable. Please contact the store for current availability.";
+
+
+        [
+            "latestInventory",
+            "pistolInventory",
+            "rifleInventory",
+            "shotgunInventory",
+            "muzzleInventory"
+
+        ].forEach(
+            id => {
+
+                const container =
+                    document.getElementById(
+                        id
+                    );
+
+
+                if (container) {
+
+                    showEmpty(
+                        container,
+                        message
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   PAGE BUTTONS
+===================================================== */
+
+const navButtons =
+    document.querySelectorAll(
+        ".nav-button"
+    );
+
+
+const pages =
+    document.querySelectorAll(
+        ".page"
+    );
+
+
+navButtons.forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const pageID =
+                    button.dataset.page;
+
+
+                navButtons.forEach(
+                    navButton => {
+
+                        navButton.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                pages.forEach(
+                    page => {
+
+                        page.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                document
+                    .getElementById(
+                        pageID
+                    )
+                    .classList.add(
+                        "active"
+                    );
+
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   SEARCH LISTENERS
+===================================================== */
+
+document
+.getElementById(
+    "homeSearch"
+)
+.addEventListener(
+    "input",
+    event => {
+
+        displayLatest(
+            event.target.value
+        );
+
+    }
+);
+
+
+document
+.getElementById(
+    "pistolSearch"
+)
+.addEventListener(
+    "input",
+    event => {
+
+        displayPistols(
+            event.target.value
+        );
+
+    }
+);
+
+
+document
+.getElementById(
+    "rifleSearch"
+)
+.addEventListener(
+    "input",
+    event => {
+
+        displayGroupedInventory(
+            "rifleInventory",
+            "rifle",
+            event.target.value
+        );
+
+    }
+);
+
+
+document
+.getElementById(
+    "shotgunSearch"
+)
+.addEventListener(
+    "input",
+    event => {
+
+        displayGroupedInventory(
+            "shotgunInventory",
+            "shotgun",
+            event.target.value
+        );
+
+    }
+);
+
+
+document
+.getElementById(
+    "muzzleSearch"
+)
+.addEventListener(
+    "input",
+    event => {
+
+        displayGroupedInventory(
+            "muzzleInventory",
+            "muzzleloader",
+            event.target.value
+        );
+
+    }
+);
+
+
+/* =====================================================
+   PHOTO ZOOM
+===================================================== */
+
+const modal =
+    document.getElementById(
+        "photoModal"
+    );
+
+
+const modalImage =
+    document.getElementById(
+        "modalImage"
+    );
+
+
+const closeModal =
+    document.getElementById(
+        "closeModal"
+    );
+
+
+document.addEventListener(
+    "click",
+    event => {
+
+        const button =
+            event.target.closest(
+                ".firearm-photo-button"
+            );
+
+
+        if (!button) {
+
+            return;
+
+        }
+
+
+        modalImage.src =
+            button.dataset.photo;
+
+
+        modalImage.alt =
+            button.dataset.alt;
+
+
+        modal.classList.add(
+            "open"
+        );
+
+
+        modal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+);
+
+
+function closePhoto() {
+
+    modal.classList.remove(
+        "open"
+    );
+
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    modalImage.src = "";
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+closeModal.addEventListener(
+    "click",
+    closePhoto
+);
+
+
+modal.addEventListener(
+    "click",
+    event => {
 
         if (
-          window.scrollY > 500
+            event.target === modal
         ) {
 
-          backToTop.classList.add(
-            "show"
-          );
+            closePhoto();
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape" &&
+            modal.classList.contains(
+                "open"
+            )
+        ) {
+
+            closePhoto();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   BACK TO TOP
+===================================================== */
+
+const backToTop =
+    document.getElementById(
+        "backToTop"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (
+            window.scrollY > 500
+        ) {
+
+            backToTop.classList.add(
+                "show"
+            );
 
         }
 
         else {
 
-          backToTop.classList.remove(
-            "show"
-          );
+            backToTop.classList.remove(
+                "show"
+            );
 
         }
 
-      }
-    );
+    }
+);
 
 
-    backToTop.addEventListener(
-      "click",
-      () => {
+backToTop.addEventListener(
+    "click",
+    () => {
 
         window.scrollTo({
-          top: 0,
-          behavior: "smooth"
+            top: 0,
+            behavior: "smooth"
         });
 
-      }
-    );
+    }
+);
 
 
-    /*
-      ==================================================
-      START WEBSITE
-      ==================================================
-    */
+/* =====================================================
+   START WEBSITE
+===================================================== */
 
-    loadInventory();
+loadInventory();
 
-  </script>
+</script>
 
 
 </body>
-
 </html>
